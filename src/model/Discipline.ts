@@ -1,10 +1,12 @@
 export interface DisciplineInterface {
     id: number;
     name: string;
+    acronym: string;
     frequency: Frequency;
     available: boolean;
     description: string;
     pre_requisites: string[];
+    post_requisites: string[];
     teacher: string;
     schedule: string;
 }
@@ -18,10 +20,12 @@ export class Discipline implements DisciplineInterface {
     constructor(
         private _id: number,
         private _name: string,
+        private _acronym: string,
         private _frequency: Frequency,
         private _available: boolean,
         private _description: string,
         private _pre_requisites: string[],
+        private _post_requisites: string[],
         private _teacher: string,        
         private _schedule: string         
     ) { this.validate();}
@@ -30,6 +34,7 @@ export class Discipline implements DisciplineInterface {
 
         const stringProperties = [
             { name: 'name', value: this.name },
+            { name: 'acronym', value: this.acronym },
             { name: 'description', value: this.description },
             { name: 'teacher', value: this.teacher },
             { name: 'schedule', value: this.schedule }
@@ -63,6 +68,12 @@ export class Discipline implements DisciplineInterface {
     set pre_requisites(value: string[]) {
         this._pre_requisites = value;
     }
+    get post_requisites(): string[] {
+        return this._post_requisites;
+    }
+    set post_requisites(value: string[]) {
+        this._post_requisites = value;
+    }
     get description(): string {
         return this._description;
     }
@@ -80,6 +91,12 @@ export class Discipline implements DisciplineInterface {
     }
     set frequency(value: Frequency) {
         this._frequency = value;
+    }
+    get acronym(): string {
+        return this._acronym;
+    }
+    set acronym(value: string) {
+        this._acronym = value;
     }
     get name(): string {
         return this._name;

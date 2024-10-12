@@ -14,12 +14,14 @@ datasource db {
 }
 
 model Discipline {
-  id            Int      @id @default(autoincrement())
-  name          String   @unique 
-  teacher       String
-  frequency     String   @default("ALWAYS")
-  available     Boolean  @default(false)
-  description   String
-  pre_requisites String[] 
-  schedule      String   @unique
+  id               Int      @id @default(autoincrement())
+  name             String   @unique 
+  acronym          String   @unique
+  teacher          String
+  frequency        String   @default("ALWAYS")
+  available        Boolean  @default(false)
+  description      String
+  pre_requisites   String[] 
+  post_requisites  String[] 
+  schedule         String   @unique
 }

@@ -17,10 +17,12 @@ export class DisciplineService implements DisciplineServiceInterface {
     async createDiscipline(disciplineDTO: DisciplineDTO): Promise<DisciplineDTO> {
         const discipline: Discipline = new Discipline( disciplineDTO.id, 
                                                        disciplineDTO.name,
+                                                       disciplineDTO.acronym,
                                                        disciplineDTO.frequency, 
                                                        disciplineDTO.available, 
                                                        disciplineDTO.description,
                                                        disciplineDTO.pre_requisites, 
+                                                       disciplineDTO.post_requisites,
                                                        disciplineDTO.teacher,
                                                        disciplineDTO.schedule );
         
