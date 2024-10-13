@@ -1,8 +1,9 @@
-import { Frequency, DisciplineInterface } from "../model/Discipline";
+import { Frequency } from "@prisma/client";
+import { DisciplineInterface } from "../model/Discipline";
 import { IsNotEmpty, IsString, IsEnum } from 'class-validator';
 
 export class DisciplineDTO implements DisciplineInterface {
-    
+
     @IsNotEmpty()
     @IsString()
     public name: string;
@@ -12,7 +13,7 @@ export class DisciplineDTO implements DisciplineInterface {
     public acronym: string;
 
     @IsNotEmpty()
-    @IsEnum(Frequency) 
+    @IsEnum(Frequency)
     public frequency: Frequency;
 
     @IsNotEmpty()

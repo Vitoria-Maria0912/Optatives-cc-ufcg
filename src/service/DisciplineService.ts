@@ -1,10 +1,16 @@
 import { DisciplineRepository, DisciplineRepositoryInterface } from "../repository/DisciplineRepository";
 import { DisciplineDTO } from "../dtos/DisciplineDTO";
-import { Discipline, Frequency } from "../model/Discipline";
+import { Discipline } from "../model/Discipline";
 
-type DisciplineUpdateFields = {
-    [K in keyof Discipline]: Discipline[K] extends string | number | string[] ? Discipline[K] : never;
-};
+export interface DisciplineServiceInterface {
+    createDiscipline(disciplineDTO:  DisciplineDTO): Promise<DisciplineDTO>;
+    deleteDiscipline(idDiscipline: number): Promise<void>;
+    deleteAllDisciplines(): Promise<void>;
+    patchDiscipline(idDiscipline: number, updates: Partial<Omit<Discipline, 'id'>>): Promise<void>;
+    updateDiscipline(idDiscipline: number, disciplineDTO:  DisciplineDTO): Promise<void>;
+    getOneDiscipline(idDiscipline: number): Promise<DisciplineDTO | void>;
+    getAllDisciplines(): Promise<DisciplineDTO[]>;
+} 
 
 export class DisciplineService implements DisciplineServiceInterface {
 
@@ -15,51 +21,61 @@ export class DisciplineService implements DisciplineServiceInterface {
     }
 
     async createDiscipline(disciplineDTO: DisciplineDTO): Promise<DisciplineDTO> {
-        const discipline: Discipline = new Discipline( disciplineDTO.id, 
-                                                       disciplineDTO.name,
-                                                       disciplineDTO.acronym,
-                                                       disciplineDTO.frequency, 
-                                                       disciplineDTO.available, 
-                                                       disciplineDTO.description,
-                                                       disciplineDTO.pre_requisites, 
-                                                       disciplineDTO.post_requisites,
-                                                       disciplineDTO.teacher,
-                                                       disciplineDTO.schedule );
-        
-        return await this.disciplineRepository.createDiscipline(discipline);
+        this.validate(disciplineDTO.id);
+        let discipline = new Discipline(disciplineDTO);  
+        return await this.disciplineRepository.createDiscipline(discipline);;
     }
 
     async deleteDiscipline(idDiscipline: number): Promise<void> {
-        await this.disciplineRepository.deleteDiscipline(idDiscipline);
+        if(!this.validate(idDiscipline)){
+            await this.disciplineRepository.deleteDiscipline(idDiscipline);
+        }
+    }
+
+    async deleteAllDisciplines(): Promise<void> {
+        await this.disciplineRepository.deleteAllDisciplines();
     }
 
     async updateDiscipline(idDiscipline: number, disciplineDTO: DisciplineDTO): Promise<void> {
-        const discipline = await this.disciplineRepository.getOneDiscipline(idDiscipline)            
-        await this.disciplineRepository.updateDiscipline(discipline);
+        if(!this.validate(idDiscipline)){
+            const discipline = await this.disciplineRepository.getOneDiscipline(idDiscipline)            
+            await this.disciplineRepository.updateDiscipline(discipline, disciplineDTO);
+        }
     }
     
     async patchDiscipline(idDiscipline: number, updates: Partial<Omit<Discipline, 'id'>>): Promise<void> {
-        const discipline = await this.disciplineRepository.getOneDiscipline(idDiscipline);
-        Object.assign(discipline, updates); 
-        await this.disciplineRepository.updateDiscipline(discipline);
+        if(!this.validate(idDiscipline)){
+            const discipline = await this.disciplineRepository.getOneDiscipline(idDiscipline);
+            await this.disciplineRepository.patchDiscipline(idDiscipline, updates);
+        }
     }
-    
 
-    async getOneDiscipline(idDiscipline: number): Promise<DisciplineDTO> {
+    async getOneDiscipline(idDiscipline: number): Promise<DisciplineDTO | void> {
         return await this.disciplineRepository.getOneDiscipline(idDiscipline);
     }
 
     async getAllDisciplines(): Promise<DisciplineDTO[]> {
         return await this.disciplineRepository.getAllDisciplines();
     }
-}
 
-export interface DisciplineServiceInterface {
-    createDiscipline(disciplineDTO:  DisciplineDTO): Promise<DisciplineDTO>;
-    deleteDiscipline(idDiscipline: number): Promise<void>;
-    patchDiscipline(idDiscipline: number, updates: Partial<Omit<Discipline, 'id'>>): Promise<void>;
-    updateDiscipline(idDiscipline: number, disciplineDTO:  DisciplineDTO): Promise<void>;
-    getOneDiscipline(idDiscipline: number): Promise<DisciplineDTO>;
-    getAllDisciplines(): Promise<DisciplineDTO[]>;
-} 
+    async validate(idDiscipline: number): Promise<void> {
+        const discipline = await this.disciplineRepository.getOneDiscipline(idDiscipline);
+        const stringProperties = [
+            { name: 'name', value: discipline.name },
+            { name: 'acronym', value: discipline.acronym },
+            { name: 'description', value: discipline.description },
+            { name: 'teacher', value: discipline.teacher },
+            { name: 'schedule', value: discipline.schedule }
+        ];
+
+        if(!discipline.frequency) { throw new Error(`Frequency cannot be empty!`);}
+        if(!discipline.available) { throw new Error(`If is available cannot be empty!`);}
+
+        stringProperties.forEach(property => {
+            if(!property.value || (typeof property.value === 'string' && property.value.trim() === '')) {
+                throw new Error(`${property.name} cannot be empty!`);
+            }
+        });
+    }
+}
 

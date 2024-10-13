@@ -14,14 +14,19 @@ datasource db {
 }
 
 model Discipline {
-  id               Int      @id @default(autoincrement())
-  name             String   @unique 
-  acronym          String   @unique
+  id               Int        @id @default(autoincrement())
+  name             String     @unique 
+  acronym          String     @unique
   teacher          String
-  frequency        String   @default("ALWAYS")
-  available        Boolean  @default(false)
+  frequency        Frequency  @default(ALWAYS)
+  available        Boolean    @default(false)
   description      String
   pre_requisites   String[] 
   post_requisites  String[] 
-  schedule         String   @unique
+  schedule         String     @unique
+}
+
+enum Frequency {
+  ALWAYS
+  SOMETIMES
 }

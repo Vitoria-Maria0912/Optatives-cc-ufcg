@@ -1,3 +1,5 @@
+import { Frequency } from '@prisma/client';
+
 export interface DisciplineInterface {
     id: number;
     name: string;
@@ -11,100 +13,29 @@ export interface DisciplineInterface {
     schedule: string;
 }
 
-export enum Frequency {
-    ALWAYS, SOMETIMES
-}
-
 export class Discipline implements DisciplineInterface {
 
-    constructor(
-        private _id: number,
-        private _name: string,
-        private _acronym: string,
-        private _frequency: Frequency,
-        private _available: boolean,
-        private _description: string,
-        private _pre_requisites: string[],
-        private _post_requisites: string[],
-        private _teacher: string,        
-        private _schedule: string         
-    ) { this.validate();}
+    public id: number;
+    public name: string;
+    public acronym: string;
+    public frequency: Frequency;
+    public available: boolean;
+    public description: string;
+    public pre_requisites: string[];
+    public post_requisites: string[];
+    public teacher: string;
+    public schedule: string;  
 
-    private validate() {
-
-        const stringProperties = [
-            { name: 'name', value: this.name },
-            { name: 'acronym', value: this.acronym },
-            { name: 'description', value: this.description },
-            { name: 'teacher', value: this.teacher },
-            { name: 'schedule', value: this.schedule }
-        ];
-
-        if(!this._frequency) { throw new Error(`Frequency cannot be empty!`);}
-        if(!this._available) { throw new Error(`If is available cannot be empty!`);}
-
-        stringProperties.forEach(property => {
-            if(!property.value || (typeof property.value === 'string' && property.value.trim() === '')) {
-                throw new Error(`${property.name} cannot be empty!`);
-            }
-        });
-    }
-
-    get schedule(): string {
-        return this._schedule;
-    }
-    set schedule(value: string) {
-        this._schedule = value;
-    }
-    get teacher(): string {
-        return this._teacher;
-    }
-    set teacher(value: string) {
-        this._teacher = value;
-    }
-    get pre_requisites(): string[] {
-        return this._pre_requisites;
-    }
-    set pre_requisites(value: string[]) {
-        this._pre_requisites = value;
-    }
-    get post_requisites(): string[] {
-        return this._post_requisites;
-    }
-    set post_requisites(value: string[]) {
-        this._post_requisites = value;
-    }
-    get description(): string {
-        return this._description;
-    }
-    set description(value: string) {
-        this._description = value;
-    }
-    get available(): boolean {
-        return this._available;
-    }
-    set available(value: boolean) {
-        this._available = value;
-    }
-    get frequency(): Frequency {
-        return this._frequency;
-    }
-    set frequency(value: Frequency) {
-        this._frequency = value;
-    }
-    get acronym(): string {
-        return this._acronym;
-    }
-    set acronym(value: string) {
-        this._acronym = value;
-    }
-    get name(): string {
-        return this._name;
-    }
-    set name(value: string) {
-        this._name = value;
-    }
-    get id(): number {
-        return this._id;
+    constructor(discipline: DisciplineInterface) {
+        this.id = discipline.id;
+        this.name = discipline.name;
+        this.acronym = discipline.acronym;
+        this.frequency = discipline.frequency;
+        this.available = discipline.available;
+        this.description = discipline.description;
+        this.pre_requisites = discipline.pre_requisites;
+        this.post_requisites = discipline.post_requisites;
+        this.teacher = discipline.teacher;
+        this.schedule = discipline.schedule;
     }
 }

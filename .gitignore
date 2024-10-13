@@ -3,8 +3,9 @@
 # dependencies
 /node_modules
 /react
-/tests
 /dist
+/tests
+/prisma/migrations
 /.pnp
 .pnp.js
 
