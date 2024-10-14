@@ -14,11 +14,7 @@ export interface DisciplineServiceInterface {
 
 export class DisciplineService implements DisciplineServiceInterface {
 
-    private disciplineRepository: DisciplineRepositoryInterface;
-
-    constructor(disciplineRepository: DisciplineRepository) {
-        this.disciplineRepository = disciplineRepository;
-    }
+    private disciplineRepository: DisciplineRepositoryInterface = new DisciplineRepository; 
 
     async createDiscipline(disciplineDTO: DisciplineDTO): Promise<DisciplineDTO> {
         this.validate(disciplineDTO.id);
@@ -27,6 +23,7 @@ export class DisciplineService implements DisciplineServiceInterface {
     }
 
     async deleteDiscipline(idDiscipline: number): Promise<void> {
+        if(!idDiscipline) { throw new Error(`Invalid ID!`); }
         if(!this.validate(idDiscipline)){
             await this.disciplineRepository.deleteDiscipline(idDiscipline);
         }
@@ -37,6 +34,7 @@ export class DisciplineService implements DisciplineServiceInterface {
     }
 
     async updateDiscipline(idDiscipline: number, disciplineDTO: DisciplineDTO): Promise<void> {
+        if(!idDiscipline) { throw new Error(`Invalid ID!`); }
         if(!this.validate(idDiscipline)){
             const discipline = await this.disciplineRepository.getOneDiscipline(idDiscipline)            
             await this.disciplineRepository.updateDiscipline(discipline, disciplineDTO);
@@ -44,36 +42,43 @@ export class DisciplineService implements DisciplineServiceInterface {
     }
     
     async patchDiscipline(idDiscipline: number, updates: Partial<Omit<Discipline, 'id'>>): Promise<void> {
+        if(!idDiscipline) { throw new Error(`Invalid ID!`); }
         if(!this.validate(idDiscipline)){
             const discipline = await this.disciplineRepository.getOneDiscipline(idDiscipline);
             await this.disciplineRepository.patchDiscipline(idDiscipline, updates);
         }
     }
 
+    // See the return
     async getOneDiscipline(idDiscipline: number): Promise<DisciplineDTO | void> {
-        return await this.disciplineRepository.getOneDiscipline(idDiscipline);
+        try {
+            if(!idDiscipline) { throw new Error(`Id invalid!`); }
+            return await this.disciplineRepository.getOneDiscipline(idDiscipline);
+        } catch (error) {
+            throw new Error('Id inválido');
+        }
     }
 
     async getAllDisciplines(): Promise<DisciplineDTO[]> {
         return await this.disciplineRepository.getAllDisciplines();
     }
 
-    async validate(idDiscipline: number): Promise<void> {
+    private async validate(idDiscipline: number): Promise<void> {
         const discipline = await this.disciplineRepository.getOneDiscipline(idDiscipline);
         const stringProperties = [
             { name: 'name', value: discipline.name },
             { name: 'acronym', value: discipline.acronym },
+            { name: 'frequency', value: discipline.frequency },
             { name: 'description', value: discipline.description },
             { name: 'teacher', value: discipline.teacher },
             { name: 'schedule', value: discipline.schedule }
         ];
 
-        if(!discipline.frequency) { throw new Error(`Frequency cannot be empty!`);}
-        if(!discipline.available) { throw new Error(`If is available cannot be empty!`);}
+        if(!discipline.available) { throw new Error(`Availability of discipline cannot be empty!`); }
 
         stringProperties.forEach(property => {
             if(!property.value || (typeof property.value === 'string' && property.value.trim() === '')) {
-                throw new Error(`${property.name} cannot be empty!`);
+                throw new Error(`Discipline's ${property.name} cannot be empty!`);
             }
         });
     }

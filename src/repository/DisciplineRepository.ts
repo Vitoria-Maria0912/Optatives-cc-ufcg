@@ -1,4 +1,4 @@
-import { Frequency, PrismaClient } from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 import { Discipline } from "../model/Discipline";
 import { DisciplineDTO } from "../dtos/DisciplineDTO";
 
@@ -41,17 +41,15 @@ export class DisciplineRepository implements DisciplineRepositoryInterface {
     }
 
     async patchDiscipline(idDiscipline: number, updates: Partial<Omit<Discipline, 'id'>>): Promise<void> {
-        await this.prisma.discipline.update({
-            where: { id: idDiscipline }, data: updates
-        });
+        await this.prisma.discipline.update({ where: { id: idDiscipline }, data: updates });
     }
 
     async updateDiscipline(discipline:  Discipline, disciplineDTO:  DisciplineDTO): Promise<void> {
-        await this.prisma.discipline.update({where: {id: discipline.id}, data: disciplineDTO});
+        await this.prisma.discipline.update({ where: {id: discipline.id}, data: disciplineDTO });
     }
     
     async getOneDiscipline(idDiscipline: number): Promise<Discipline> {
-        return await this.prisma.discipline.findUniqueOrThrow({where: {id: idDiscipline}})
+        return await this.prisma.discipline.findUniqueOrThrow({ where: {id: idDiscipline }})
     }
 
     async getAllDisciplines(): Promise<Discipline[]> {

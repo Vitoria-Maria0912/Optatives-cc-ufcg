@@ -3,11 +3,7 @@ import { DisciplineService, DisciplineServiceInterface } from '../service/Discip
 
 export class DisciplineController {
 
-    private disciplineService: DisciplineServiceInterface;
-
-    constructor(disciplineService: DisciplineService) {
-        this.disciplineService = disciplineService;
-    }
+    private disciplineService: DisciplineServiceInterface = new DisciplineService();
 
     async createDisciplines(request: Request, response: Response): Promise<Response>  {
         var codeResponse: number = 400;
@@ -37,7 +33,7 @@ export class DisciplineController {
         return response.status(codeResponse).json(responseBody)
     }
 
-    async deleteAllDiscipline(request: Request, response: Response): Promise<Response> {
+    async deleteAllDisciplines(request: Request, response: Response): Promise<Response> {
         var codeResponse: number = 400;
         var responseBody: object;
         try {
@@ -80,7 +76,7 @@ export class DisciplineController {
         return response.status(codeResponse).json(responseBody)
     }
 
-    async getDisciplines(request: Request, response: Response): Promise<Response>  {
+    async getAllDisciplines(request: Request, response: Response): Promise<Response>  {
         var codeResponse: number = 400;
         var responseBody: object;
         try {
