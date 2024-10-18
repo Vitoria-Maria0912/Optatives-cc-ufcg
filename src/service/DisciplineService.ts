@@ -24,9 +24,7 @@ export class DisciplineService implements DisciplineServiceInterface {
 
     async deleteDiscipline(idDiscipline: number): Promise<void> {
         if(!idDiscipline) { throw new Error(`Invalid ID!`); }
-        if(!this.validate(idDiscipline)){
-            await this.disciplineRepository.deleteDiscipline(idDiscipline);
-        }
+        await this.disciplineRepository.deleteDiscipline(idDiscipline);
     }
 
     async deleteAllDisciplines(): Promise<void> {
@@ -49,14 +47,9 @@ export class DisciplineService implements DisciplineServiceInterface {
         }
     }
 
-    // See the return
     async getOneDiscipline(idDiscipline: number): Promise<DisciplineDTO | void> {
-        try {
-            if(!idDiscipline) { throw new Error(`Id invalid!`); }
-            return await this.disciplineRepository.getOneDiscipline(idDiscipline);
-        } catch (error) {
-            throw new Error('Id inválido');
-        }
+        if(!idDiscipline) { throw new Error(`Invalid ID!`); }
+        return await this.disciplineRepository.getOneDiscipline(idDiscipline);
     }
 
     async getAllDisciplines(): Promise<DisciplineDTO[]> {

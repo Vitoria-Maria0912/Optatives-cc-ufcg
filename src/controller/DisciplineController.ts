@@ -76,12 +76,12 @@ export class DisciplineController {
         return response.status(codeResponse).json(responseBody)
     }
 
-    async getAllDisciplines(request: Request, response: Response): Promise<Response>  {
+    async getOneDiscipline(request: Request, response: Response): Promise<Response>  {
         var codeResponse: number = 400;
         var responseBody: object;
         try {
-            const { id } = request.body;
-            const discipline = await this.disciplineService.getOneDiscipline(id);
+            const { id } = request.params;
+            const discipline = await this.disciplineService.getOneDiscipline(Number(id));
             codeResponse = 200;
             responseBody = { mensage: "Discipline was found successfully!", discipline};
         } catch (error) {
@@ -90,7 +90,7 @@ export class DisciplineController {
         return response.status(codeResponse).json(responseBody)
     }
 
-    async getOneDiscipline(request: Request, response: Response): Promise<Response>  {
+    async getAllDisciplines(request: Request, response: Response): Promise<Response>  {
         var codeResponse: number = 400;
         var responseBody: object;
         try {

@@ -1,15 +1,25 @@
 import express from 'express';
+import bodyParser from 'body-parser';
 import { DisciplineController } from '../controller/DisciplineController';
 
-const app = express();
-app.use(express.json());
+export const app = express();
+// app.use(bodyParser.json());
+
+// app.use('/protected', (req, res, next) => {
+//     if (req.headers.authorization === 'Bearer token') {
+//         next();
+//     } else {
+//         res.status(401).json({ error: 'Not authorized' });
+//     }
+// });
 
 const disciplineController = new DisciplineController();
 
-app.post('/protected/disciplines', (req, res) => disciplineController.createDisciplines);
-app.delete('/protected/disciplines', (req, res) => disciplineController.deleteAllDisciplines);
-app.delete('/protected/disciplines/:id', (req, res) => disciplineController.deleteDiscipline);
-app.patch('/protected/disciplines/:id', (req, res) => disciplineController.updateDiscipline);
-app.put('/protected/disciplines/:id', (req, res) => disciplineController.patchDiscipline);
-app.get('/protected/disciplines/:id', (req, res) => disciplineController.getOneDiscipline);
-app.get('/disciplines', (req, res) => disciplineController.getAllDisciplines);
+app.post('/protected/disciplines', (req, res) => {disciplineController.createDisciplines(req,res)});
+app.put('/protected/disciplines/:id', (req, res) => {disciplineController.updateDiscipline(req, res)});
+app.delete('/protected/disciplines', (req, res) => {disciplineController.deleteAllDisciplines(req, res)});
+app.delete('/protected/disciplines/:id', (req, res) => {disciplineController.deleteDiscipline(req, res)});
+app.patch('/protected/disciplines/:id', (req, res) => {disciplineController.updateDiscipline(req, res)});
+app.put('/protected/disciplines/:id', (req, res) => {disciplineController.patchDiscipline(req, res)});
+app.get('/disciplines/:id', (req, res) => {disciplineController.getOneDiscipline(req, res)});
+app.get('/disciplines', (req, res) => {disciplineController.getAllDisciplines(req, res)});
