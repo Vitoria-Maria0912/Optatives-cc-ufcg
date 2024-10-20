@@ -1,8 +1,11 @@
 import { Frequency } from "@prisma/client";
 import { DisciplineInterface } from "../model/Discipline";
-import { IsNotEmpty, IsString, IsEnum } from 'class-validator';
+import { IsNotEmpty, IsString, IsEnum, IsArray, IsNumber } from 'class-validator';
 
 export class DisciplineDTO implements DisciplineInterface {
+
+    @IsNumber()
+    public id: number;
 
     @IsNotEmpty()
     @IsString()
@@ -23,8 +26,12 @@ export class DisciplineDTO implements DisciplineInterface {
     @IsString()
     public description: string;
 
+    @IsArray()
+    @IsString({ each: true })
     public pre_requisites: string[];
 
+    @IsArray()
+    @IsString({ each: true })
     public post_requisites: string[];
 
     @IsNotEmpty()
@@ -36,7 +43,7 @@ export class DisciplineDTO implements DisciplineInterface {
     public schedule: string;     
 
     constructor(
-        public id: number,
+        id: number,
         name: string,
         acronym: string,
         frequency: Frequency,
@@ -47,6 +54,7 @@ export class DisciplineDTO implements DisciplineInterface {
         teacher: string,
         schedule: string
     ) {
+        this.id = id;
         this.name = name;
         this.acronym = acronym;
         this.frequency = frequency;

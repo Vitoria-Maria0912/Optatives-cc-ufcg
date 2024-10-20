@@ -23,7 +23,7 @@ model Discipline {
   description      String
   pre_requisites   String[] 
   post_requisites  String[] 
-  schedule         String     @unique
+  schedule         String     
 }
 
 enum Frequency {

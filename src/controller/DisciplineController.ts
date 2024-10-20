@@ -5,7 +5,7 @@ export class DisciplineController {
 
     private disciplineService: DisciplineServiceInterface = new DisciplineService();
 
-    async createDisciplines(request: Request, response: Response): Promise<Response>  {
+    async createDiscipline(request: Request, response: Response): Promise<Response>  {
         var codeResponse: number;
         var responseBody: object;
         try {
@@ -20,13 +20,28 @@ export class DisciplineController {
         return response.status(codeResponse).json(responseBody)
     }
 
+    async createManyDisciplines(request: Request, response: Response): Promise<Response>  {
+        var codeResponse: number;
+        var responseBody: object;
+        try {
+            const disciplines = request.body;
+            await this.disciplineService.createManyDisciplines(disciplines);
+            responseBody = { message: "Discipline created successfully!", disciplines};
+            codeResponse = 201;
+        } catch (error: any) {
+            responseBody = { message: error.message || "Error trying to create a discipline!"};
+            codeResponse = error.statusCode && !isNaN(error.statusCode) ? error.statusCode : 400;
+        }
+        return response.status(codeResponse).json(responseBody)
+    }
+
     async deleteDiscipline(request: Request, response: Response): Promise<Response> {
         var codeResponse: number;
         var responseBody: object;
         try {
             const { id } = request.params;
             await this.disciplineService.deleteDiscipline(Number(id));
-            responseBody = { message: "Discipline deleted successfully!"};
+            responseBody = { message: "Discipline was deleted successfully!"};
             codeResponse = 200;
         } catch (error: any) {
             responseBody = { message: error.message || "Error trying to delete a discipline!"};
@@ -56,7 +71,7 @@ export class DisciplineController {
             const { id } = request.params;
             const discipline = request.body;
             await this.disciplineService.updateDiscipline(Number(id), discipline);
-            responseBody = { message: "Discipline updated successfully!"};
+            responseBody = { message: "Discipline updated successfully!", discipline};
             codeResponse = 200;
         } catch (error: any) {
             responseBody = { message: error.message || "Error trying to update a discipline!"};
@@ -72,7 +87,8 @@ export class DisciplineController {
             const { id } = request.params;
             const updates = request.body;
             await this.disciplineService.patchDiscipline(Number(id), updates);
-            responseBody = { message: "Discipline's field updated successfully!"};
+            const discipline = await this.disciplineService.getOneDisciplineByID(Number(id));
+            responseBody = { message: "Discipline's field updated successfully!", discipline};
             codeResponse = 200;
         } catch (error: any) {
             responseBody = { message: error.message || "Error trying to update a discipline's field!"};
@@ -81,12 +97,27 @@ export class DisciplineController {
         return response.status(codeResponse).json(responseBody)
     }
 
-    async getOneDiscipline(request: Request, response: Response): Promise<Response>  {
+    async getOneDisciplineByID(request: Request, response: Response): Promise<Response>  {
         var codeResponse: number;
         var responseBody: object;
         try {
             const { id } = request.params;
-            const discipline = await this.disciplineService.getOneDiscipline(Number(id));
+            const discipline = await this.disciplineService.getOneDisciplineByID(Number(id));
+            responseBody = { message: "Discipline was found successfully!", discipline};
+            codeResponse = 200;
+        } catch (error: any) {
+            responseBody = { message: error.message || "Error trying to get one discipline!"};
+            codeResponse = error.statusCode && !isNaN(error.statusCode) ? error.statusCode : 400;
+        }
+        return response.status(codeResponse).json(responseBody)
+    }
+
+    async getOneDisciplineByName(request: Request, response: Response): Promise<Response>  {
+        var codeResponse: number;
+        var responseBody: object;
+        try {
+            const { name } = request.params;
+            const discipline = await this.disciplineService.getOneDisciplineByName(name);
             responseBody = { message: "Discipline was found successfully!", discipline};
             codeResponse = 200;
         } catch (error: any) {

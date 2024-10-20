@@ -17,11 +17,12 @@ app.use(express.json());
 
 const disciplineController = new DisciplineController();
 
-app.post('/protected/disciplines', (req, res) => {disciplineController.createDisciplines(req,res)});
+app.post('/protected/disciplines', (req, res) => {disciplineController.createDiscipline(req,res)});
 app.put('/protected/disciplines/:id', (req, res) => {disciplineController.updateDiscipline(req, res)});
 app.delete('/protected/disciplines', (req, res) => {disciplineController.deleteAllDisciplines(req, res)});
 app.delete('/protected/disciplines/:id', (req, res) => {disciplineController.deleteDiscipline(req, res)});
-app.patch('/protected/disciplines/:id', (req, res) => {disciplineController.updateDiscipline(req, res)});
-app.put('/protected/disciplines/:id', (req, res) => {disciplineController.patchDiscipline(req, res)});
-app.get('/disciplines/:id', (req, res) => {disciplineController.getOneDiscipline(req, res)});
+app.patch('/protected/disciplines/:id', (req, res) => {disciplineController.patchDiscipline(req, res)});
+app.put('/protected/disciplines/:id', (req, res) => {disciplineController.updateDiscipline(req, res)});
+app.get('/disciplines/:id', (req, res) => {disciplineController.getOneDisciplineByID(req, res)});
+app.get('/disciplines/:name', (req, res) => {disciplineController.getOneDisciplineByName(req, res)});
 app.get('/disciplines', (req, res) => {disciplineController.getAllDisciplines(req, res)});

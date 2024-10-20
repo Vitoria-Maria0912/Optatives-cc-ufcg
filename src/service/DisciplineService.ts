@@ -6,47 +6,55 @@ import { InvalidFieldError } from "../errorHandler/InvalidFieldError";
 
 export interface DisciplineServiceInterface {
     createDiscipline(disciplineDTO:  DisciplineDTO): Promise<DisciplineDTO>;
+    createManyDisciplines(disciplines: DisciplineDTO[]): Promise<void>;
     deleteDiscipline(idDiscipline: number): Promise<void>;
     deleteAllDisciplines(): Promise<void>;
     patchDiscipline(idDiscipline: number, updates: Partial<Omit<Discipline, 'id'>>): Promise<void>;
     updateDiscipline(idDiscipline: number, disciplineDTO:  DisciplineDTO): Promise<void>;
-    getOneDiscipline(idDiscipline: number): Promise<DisciplineDTO>;
+    getOneDisciplineByID(idDiscipline: number): Promise<DisciplineDTO>;
+    getOneDisciplineByName(disciplineName: string): Promise<DisciplineDTO>;
     getAllDisciplines(): Promise<DisciplineDTO[]>;
 } 
 
 export class DisciplineService implements DisciplineServiceInterface {
-
+    
     private disciplineRepository: DisciplineRepositoryInterface = new DisciplineRepository; 
-
+    
     async createDiscipline(disciplineDTO: DisciplineDTO): Promise<DisciplineDTO> {
         let discipline = new Discipline(disciplineDTO);  
         this.validate(discipline);
         return await this.disciplineRepository.createDiscipline(discipline);
     }
 
+    async createManyDisciplines(disciplinesDTO: DisciplineDTO[]): Promise<void> {
+        disciplinesDTO.forEach((discipline: Discipline) => this.validate(discipline));
+        const disciplines: Discipline[] = disciplinesDTO.map((discipline: Discipline) => (new Discipline(discipline)))
+        await this.disciplineRepository.createManyDisciplines(disciplines);
+    }
+    
     async deleteDiscipline(idDiscipline: number): Promise<void> {
         if ((await this.getAllDisciplines()).length === 0) {
             throw new NotFoundError('No disciplines found!');
         }
-        const discipline = await this.disciplineRepository.getOneDiscipline(idDiscipline);
+        const discipline = await this.disciplineRepository.getOneDisciplineByID(idDiscipline);
         if (!discipline) {
             throw new NotFoundError(`Discipline not found!`);
         }
         await this.disciplineRepository.deleteDiscipline(idDiscipline);
     }
-
+    
     async deleteAllDisciplines(): Promise<void> {
         if ((await this.getAllDisciplines()).length === 0) {
             throw new NotFoundError('No disciplines found!');
         }
         await this.disciplineRepository.deleteAllDisciplines();
     }
-
+    
     async updateDiscipline(idDiscipline: number, disciplineDTO: DisciplineDTO): Promise<void> {
         if ((await this.getAllDisciplines()).length === 0) {
             throw new NotFoundError('No disciplines found!');
         }
-        const discipline = await this.disciplineRepository.getOneDiscipline(idDiscipline)            
+        const discipline = await this.disciplineRepository.getOneDisciplineByID(idDiscipline)            
         if(this.validate(discipline)){
             await this.disciplineRepository.updateDiscipline(discipline, disciplineDTO);
         } else {
@@ -58,23 +66,34 @@ export class DisciplineService implements DisciplineServiceInterface {
         if ((await this.getAllDisciplines()).length === 0) {
             throw new NotFoundError('No disciplines found!');
         }
-        const discipline = await this.disciplineRepository.getOneDiscipline(idDiscipline);
+        const discipline = await this.disciplineRepository.getOneDisciplineByID(idDiscipline);
         if(this.validate(discipline)){
             await this.disciplineRepository.patchDiscipline(idDiscipline, updates);
         } else {
             throw new NotFoundError(`Discipline not found!`);
         }
     }
-
-    async getOneDiscipline(idDiscipline: number): Promise<DisciplineDTO> {
+    
+    async getOneDisciplineByID(idDiscipline: number): Promise<DisciplineDTO> {
         if ((await this.getAllDisciplines()).length === 0) {
             throw new NotFoundError('No disciplines found!');
         }
-        const discipline = await this.disciplineRepository.getOneDiscipline(idDiscipline);
+        const discipline = await this.disciplineRepository.getOneDisciplineByID(idDiscipline);
         if (!discipline) {
             throw new NotFoundError(`Discipline not found!`);
         }
         return discipline;
+    }
+    
+    async getOneDisciplineByName(disciplineName: string): Promise<DisciplineDTO> {
+        if ((await this.getAllDisciplines()).length === 0) {
+            throw new NotFoundError('No disciplines found!');
+        }
+        const discipline = await this.disciplineRepository.getOneDisciplineByName(disciplineName);
+        if (!discipline) {
+            throw new NotFoundError(`Discipline not found!`);
+        }
+        return discipline;    
     }
 
     async getAllDisciplines(): Promise<DisciplineDTO[]> {
@@ -87,7 +106,8 @@ export class DisciplineService implements DisciplineServiceInterface {
 
     private validate(discipline: Discipline): boolean {
         
-        if(!discipline.available) { throw new InvalidFieldError(`Availability of discipline cannot be empty!`); }
+        // Há um bug aq, tem q mudar para enum
+        // if(!discipline.available) { throw new InvalidFieldError(`Availability of discipline cannot be empty!`); }
 
         const stringProperties = [
             { name: 'name', value: discipline.name },
