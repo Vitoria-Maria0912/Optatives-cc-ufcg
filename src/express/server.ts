@@ -3,6 +3,8 @@ import bodyParser from 'body-parser';
 import { DisciplineController } from '../controller/DisciplineController';
 
 export const app = express();
+app.use(express.json());
+
 // app.use(bodyParser.json());
 
 // app.use('/protected', (req, res, next) => {

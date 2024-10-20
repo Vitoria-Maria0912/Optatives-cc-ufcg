@@ -19,6 +19,7 @@ export class DisciplineRepository implements DisciplineRepositoryInterface {
     async createDiscipline(discipline: Discipline): Promise<Discipline> {
         return await this.prisma.discipline.create({
             data: {
+                id: discipline.id,
                 name: discipline.name,
                 acronym: discipline.acronym,
                 frequency: discipline.frequency,
