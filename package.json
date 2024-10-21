@@ -19,7 +19,7 @@
     "express": "^4.21.1",
     "jsonwebtoken": "^9.0.2"
   },
-  "name": "projeto-frontend",
+  "name": "disciplines_cc",
   "version": "1.0.0",
   "description": "# Será possível visualizar quais as optativas existentes, seus pré-requisitos, o professor que a ministra (geralmente), a frequência que é ofertada (sempre ou as vezes) e os horários (é possível modificá-los)",
   "main": "index.js",
