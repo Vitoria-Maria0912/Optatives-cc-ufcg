@@ -270,7 +270,6 @@ describe('DisciplineController', () => {
 
         const response = await request(app).get('/disciplines/getByName/Web%20II');
 
-        console.log(response.body)
         expect(response.status).toBe(200);
         expect(response.body).toEqual({
             message: "Discipline was found successfully!",
