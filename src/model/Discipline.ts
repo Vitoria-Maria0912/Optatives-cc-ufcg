@@ -1,11 +1,11 @@
-import { Frequency } from '@prisma/client';
+import { Available, Frequency } from '@prisma/client';
 
 export interface DisciplineInterface {
     id: number;
     name: string;
     acronym: string;
     frequency: Frequency;
-    available: boolean;
+    available: Available;
     description: string;
     pre_requisites: string[];
     post_requisites: string[];
@@ -19,7 +19,7 @@ export class Discipline implements DisciplineInterface {
     public name: string;
     public acronym: string;
     public frequency: Frequency;
-    public available: boolean;
+    public available: Available;
     public description: string;
     public pre_requisites: string[];
     public post_requisites: string[];

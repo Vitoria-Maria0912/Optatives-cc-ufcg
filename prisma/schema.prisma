@@ -19,7 +19,7 @@ model Discipline {
   acronym          String     @unique
   teacher          String
   frequency        Frequency  @default(ALWAYS)
-  available        Boolean    @default(false)
+  available        Available  @default(TRUE)
   description      String
   pre_requisites   String[] 
   post_requisites  String[] 
@@ -29,4 +29,9 @@ model Discipline {
 enum Frequency {
   ALWAYS
   SOMETIMES
+}
+
+enum Available {
+  TRUE
+  FALSE
 }

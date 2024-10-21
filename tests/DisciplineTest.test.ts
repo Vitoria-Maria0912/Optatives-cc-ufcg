@@ -1,4 +1,4 @@
-import { Frequency } from '@prisma/client';
+import { Available, Frequency } from '@prisma/client';
 import { app } from '../src/express/server';
 import request from 'supertest';
 
@@ -11,7 +11,7 @@ describe('DisciplineController', () => {
             name: 'Web II',
             acronym: 'Web II',
             frequency: Frequency.SOMETIMES,
-            available: true,
+            available: Available.TRUE,
             description: 'Backend for web development',
             pre_requisites: [],
             post_requisites: [],
@@ -44,7 +44,7 @@ describe('DisciplineController', () => {
             name: 'Web II',
             acronym: 'Web II',
             frequency: Frequency.SOMETIMES,
-            available: true,
+            available: Available.TRUE,
             description: 'Backend for web development',
             pre_requisites: [],
             post_requisites: [],
@@ -72,7 +72,7 @@ describe('DisciplineController', () => {
             name: 'Web II',
             acronym: 'Web II',
             frequency: Frequency.SOMETIMES,
-            available: true,
+            available: Available.TRUE,
             description: 'Backend for web development',
             pre_requisites: [],
             post_requisites: [],
@@ -89,7 +89,7 @@ describe('DisciplineController', () => {
 
     test("patchDiscipline should return 'No disciplines found!'", async () => {
 
-        const updateData = { available: false };
+        const updateData = { available: Available.FALSE };
 
         const response = await request(app).patch('/protected/disciplines/1').send(updateData);
 
@@ -104,7 +104,7 @@ describe('DisciplineController', () => {
             name: 'Web II',
             acronym: 'Web II',
             frequency: 'SOMETIMES',
-            available: true,
+            available: Available.TRUE,
             description: 'Backend for web development',
             pre_requisites: [],
             post_requisites: [],
@@ -116,14 +116,14 @@ describe('DisciplineController', () => {
             .post('/protected/disciplines')
             .send(disciplineData);
 
-        const updateData = { available: false };
+        const updateData = { available: Available.FALSE };
 
         const response = await request(app)
            .patch('/protected/disciplines/1')
            .send(updateData);
 
         expect(response.status).toBe(200);
-        expect(response.body.discipline.available).toBe(false);
+        expect(response.body.discipline.available).toBe(Available.FALSE);
 
         expect(response.body).toEqual({
             message: "Discipline's field updated successfully!",
@@ -132,7 +132,7 @@ describe('DisciplineController', () => {
                 name: 'Web II',
                 acronym: 'Web II',
                 frequency: 'SOMETIMES',
-                available: false,
+                available: Available.FALSE,
                 description: 'Backend for web development',
                 pre_requisites: [],
                 post_requisites: [],
@@ -147,7 +147,7 @@ describe('DisciplineController', () => {
             name: 'Web II',
             acronym: 'Web II',
             frequency: 'SOMETIMES',
-            available: true,
+            available: Available.TRUE,
             description: 'Backend for web development',
             pre_requisites: [],
             post_requisites: [],
@@ -170,7 +170,7 @@ describe('DisciplineController', () => {
             name: 'Web II',
             acronym: 'Web II',
             frequency: 'SOMETIMES',
-            available: true,
+            available: Available.TRUE,
             description: 'Backend for web development',
             pre_requisites: [],
             post_requisites: [],
@@ -183,7 +183,7 @@ describe('DisciplineController', () => {
             name: 'Verificação e Validação de Software',
             acronym: 'VeV',
             frequency: 'ALWAYS',
-            available: true,
+            available: Available.TRUE,
             description: 'Tests for software engineering',
             pre_requisites: ["ES", "PSoft"],
             post_requisites: [],
@@ -204,7 +204,7 @@ describe('DisciplineController', () => {
 
     test("getOneDisciplineByID should return 'No disciplines found!'", async () => {
 
-        const response = await request(app).get('/disciplines/1');
+        const response = await request(app).get('/disciplines/getByID/1');
 
         expect(response.status).toBe(404);
         expect(response.body).toEqual({ message: 'No disciplines found!'});
@@ -217,7 +217,7 @@ describe('DisciplineController', () => {
             name: 'Web II',
             acronym: 'Web II',
             frequency: 'SOMETIMES',
-            available: true,
+            available: Available.TRUE,
             description: 'Backend for web development',
             pre_requisites: [],
             post_requisites: [],
@@ -225,7 +225,7 @@ describe('DisciplineController', () => {
             schedule: 'Segunda (8h-10h), Quarta (10h-12h)',
         });
 
-        const response = await request(app).get('/disciplines/1');
+        const response = await request(app).get('/disciplines/getByID/1');
 
         expect(response.status).toBe(200);
         expect(response.body).toEqual({
@@ -235,7 +235,51 @@ describe('DisciplineController', () => {
                 name: 'Web II',
                 acronym: 'Web II',
                 frequency: 'SOMETIMES',
-                available: true,
+                available: Available.TRUE,
+                description: 'Backend for web development',
+                pre_requisites: [],
+                post_requisites: [],
+                teacher: 'Glauber',
+                schedule: 'Segunda (8h-10h), Quarta (10h-12h)',
+            },
+        });
+    });
+
+    test("getOneDisciplineByName should return 'No disciplines found!'", async () => {
+
+        const response = await request(app).get('/disciplines/getByName/TC');
+
+        expect(response.status).toBe(404);
+        expect(response.body).toEqual({ message: 'No disciplines found!'});
+    });
+
+    test('getOneDisciplineByName should return a single discipline', async () => {
+
+        await request(app).post('/protected/disciplines').send({
+            id: 1,
+            name: 'Web II',
+            acronym: 'Web II',
+            frequency: 'SOMETIMES',
+            available: Available.TRUE,
+            description: 'Backend for web development',
+            pre_requisites: [],
+            post_requisites: [],
+            teacher: 'Glauber',
+            schedule: 'Segunda (8h-10h), Quarta (10h-12h)',
+        });
+
+        const response = await request(app).get('/disciplines/getByName/Web%20II');
+
+        console.log(response.body)
+        expect(response.status).toBe(200);
+        expect(response.body).toEqual({
+            message: "Discipline was found successfully!",
+            discipline: {
+                id: 1,
+                name: 'Web II',
+                acronym: 'Web II',
+                frequency: 'SOMETIMES',
+                available: Available.TRUE,
                 description: 'Backend for web development',
                 pre_requisites: [],
                 post_requisites: [],
@@ -257,7 +301,7 @@ describe('DisciplineController', () => {
             name: 'Web II',
             acronym: 'Web II',
             frequency: 'SOMETIMES',
-            available: true,
+            available: Available.TRUE,
             description: 'Backend for web development',
             pre_requisites: [],
             post_requisites: [],
@@ -269,7 +313,7 @@ describe('DisciplineController', () => {
             name: 'Verificação e Validação de Software',
             acronym: 'VeV',
             frequency: 'ALWAYS',
-            available: true,
+            available: Available.TRUE,
             description: 'Tests for software engineering',
             pre_requisites: ["ES", "PSoft"],
             post_requisites: [],
@@ -282,7 +326,7 @@ describe('DisciplineController', () => {
             name: 'Processamento de Linguagem Natural',
             acronym: 'PLN',
             frequency: 'SOMETIMES',
-            available: false,
+            available: Available.FALSE,
             description: 'Machine Learning introduction',
             pre_requisites: ["IA", "Linear"],
             post_requisites: [],
@@ -295,7 +339,7 @@ describe('DisciplineController', () => {
             name: 'Interface Humano-Computador',
             acronym: 'IHC',
             frequency: 'ALWAYS',
-            available: true,
+            available: Available.TRUE,
             description: 'Using Figma to create user interface (UX)',
             pre_requisites: [],
             post_requisites: [],
