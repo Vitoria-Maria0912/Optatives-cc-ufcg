@@ -29,7 +29,7 @@
   "main": "index.js",
   
   "scripts": {
-    "clean": "rimraf ../dist",
+    "clean": "rimraf ../backend/dist",
     "test": "npm run clean && jest"
   },
   "keywords": [],
