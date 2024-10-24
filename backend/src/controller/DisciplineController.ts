@@ -14,7 +14,7 @@ export class DisciplineController {
             responseBody = { message: "Discipline created successfully!", discipline};
             codeResponse = 201;
         } catch (error: any) {
-            responseBody = { message: error.message || "Error trying to create a discipline!"};
+            responseBody = { message: (!error.message) ? "Error trying to create a discipline!":  error.message};
             codeResponse = error.statusCode && !isNaN(error.statusCode) ? error.statusCode : 400;
         }
         return response.status(codeResponse).json(responseBody)
@@ -29,7 +29,7 @@ export class DisciplineController {
             responseBody = { message: "Discipline created successfully!", disciplines};
             codeResponse = 201;
         } catch (error: any) {
-            responseBody = { message: error.message || "Error trying to create a discipline!"};
+            responseBody = { message: (!error.message) ? "Error trying to create a discipline!" : error.message};
             codeResponse = error.statusCode && !isNaN(error.statusCode) ? error.statusCode : 400;
         }
         return response.status(codeResponse).json(responseBody)
@@ -44,7 +44,7 @@ export class DisciplineController {
             responseBody = { message: "Discipline was deleted successfully!"};
             codeResponse = 200;
         } catch (error: any) {
-            responseBody = { message: error.message || "Error trying to delete a discipline!"};
+            responseBody = { message: (!error.message) ? "Error trying to delete a discipline!" : error.message};
             codeResponse = error.statusCode && !isNaN(error.statusCode) ? error.statusCode : 400;
         }
         return response.status(codeResponse).json(responseBody)
@@ -58,7 +58,7 @@ export class DisciplineController {
             responseBody = { message: "All disciplines were deleted successfully!"};
             codeResponse = 200;
         } catch (error: any) {
-            responseBody = { message: error.message || "Error trying to delete all disciplines!"};
+            responseBody = { message: (!error.message) ? "Error trying to delete all disciplines!" : error.message};
             codeResponse = error.statusCode && !isNaN(error.statusCode) ? error.statusCode : 400;
         }
         return response.status(codeResponse).json(responseBody)
@@ -74,7 +74,7 @@ export class DisciplineController {
             responseBody = { message: "Discipline updated successfully!", discipline};
             codeResponse = 200;
         } catch (error: any) {
-            responseBody = { message: error.message || "Error trying to update a discipline!"};
+            responseBody = { message: (!error.message) ? "Error trying to update a discipline!" : error.message};
             codeResponse = error.statusCode && !isNaN(error.statusCode) ? error.statusCode : 400;
         }
         return response.status(codeResponse).json(responseBody)
@@ -91,7 +91,7 @@ export class DisciplineController {
             responseBody = { message: "Discipline's field updated successfully!", discipline};
             codeResponse = 200;
         } catch (error: any) {
-            responseBody = { message: error.message || "Error trying to update a discipline's field!"};
+            responseBody = { message: (!error.message) ? "Error trying to update a discipline's field!" : error.message};
             codeResponse = error.statusCode && !isNaN(error.statusCode) ? error.statusCode : 400;
         }
         return response.status(codeResponse).json(responseBody)
@@ -106,7 +106,7 @@ export class DisciplineController {
             responseBody = { message: "Discipline was found successfully!", discipline};
             codeResponse = 200;
         } catch (error: any) {
-            responseBody = { message: error.message || "Error trying to get one discipline!"};
+            responseBody = { message: (!error.message) ? "Error trying to get one discipline!" : error.message};
             codeResponse = error.statusCode && !isNaN(error.statusCode) ? error.statusCode : 400;
         }
         return response.status(codeResponse).json(responseBody)
@@ -121,7 +121,7 @@ export class DisciplineController {
             responseBody = { message: "Discipline was found successfully!", discipline};
             codeResponse = 200;
         } catch (error: any) {
-            responseBody = { message: error.message || "Error trying to get one discipline!"};
+            responseBody = { message: (!error.message) ? "Error trying to get one discipline!" : error.message};
             codeResponse = error.statusCode && !isNaN(error.statusCode) ? error.statusCode : 400;
         }
         return response.status(codeResponse).json(responseBody)
@@ -135,7 +135,7 @@ export class DisciplineController {
             responseBody = { message: "Disciplines were found successfully!", disciplines};
             codeResponse = 200;
         } catch (error: any) {
-            responseBody = { message: error.message || "Error trying to get all disciplines!" };
+            responseBody = { message: (!error.message) ? "Error trying to get all disciplines!" : error.message};
             codeResponse = error.statusCode && !isNaN(error.statusCode) ? error.statusCode : 400;
         }
         return response.status(codeResponse).json(responseBody)
