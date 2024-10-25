@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const API_URL = 'http://localhost:5432/disciplines';
-const API_URL_PROTECTED = 'http://localhost:5432/protected/disciplines';
+const API_URL = 'http://localhost:8080/disciplines';
+const API_URL_PROTECTED = 'http://localhost:8080/protected/disciplines';
 
 export const createDiscipline = async (data) => axios.post(API_URL_PROTECTED, data);
 export const deleteAllDisciplines = async () => axios.delete(API_URL_PROTECTED);
