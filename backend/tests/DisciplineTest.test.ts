@@ -1,10 +1,11 @@
-import { Available, Frequency } from '@prisma/client';
-import { app } from '../src/express/server';
+import { Available, Frequency, PrismaClient } from '@prisma/client';
+import { app, closeServer } from '../src/express/server';
 import request from 'supertest';
 
 describe('DisciplineController', () => {
     
     afterEach(async () => { await request(app).delete('/protected/disciplines') });
+    afterAll(async () => { closeServer(); await (new PrismaClient).$disconnect(); });
 
     test("createDiscipline should return 'Discipline created successfully!'", async () => {
         const disciplineData = {
