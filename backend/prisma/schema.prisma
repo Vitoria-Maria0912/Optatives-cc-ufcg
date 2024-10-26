@@ -16,14 +16,14 @@ datasource db {
 model Discipline {
   id               Int        @id @default(autoincrement())
   name             String     @unique 
-  acronym          String     @unique
-  teacher          String
+  acronym          String     
+  teacher          String     @default("Undefined")
   frequency        Frequency  @default(ALWAYS)
   available        Available  @default(TRUE)
   description      String
   pre_requisites   String[] 
   post_requisites  String[] 
-  schedule         String     
+  schedule         String     @default("Undefined")
 }
 
 enum Frequency {

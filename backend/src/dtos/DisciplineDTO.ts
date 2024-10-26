@@ -15,15 +15,12 @@ export class DisciplineDTO implements DisciplineInterface {
     @IsString()
     public acronym: string;
 
-    @IsNotEmpty()
     @IsEnum(Frequency)
     public frequency: Frequency;
 
-    @IsNotEmpty()
     @IsEnum(Available)
     public available: Available;
 
-    @IsNotEmpty()
     @IsString()
     public description: string;
 
@@ -35,11 +32,9 @@ export class DisciplineDTO implements DisciplineInterface {
     @IsString({ each: true })
     public post_requisites: string[];
 
-    @IsNotEmpty()
     @IsString()
     public teacher: string;
 
-    @IsNotEmpty()
     @IsString()
     public schedule: string;     
 

@@ -30,6 +30,7 @@ export const closeServer = () => {
 const disciplineController = new DisciplineController();
 
 app.post('/protected/disciplines', (req, res) => {disciplineController.createDiscipline(req,res)});
+app.post('/protected/createMany/disciplines', (req, res) => {disciplineController.createManyDisciplines(req,res)});
 app.delete('/protected/disciplines', (req, res) => {disciplineController.deleteAllDisciplines(req, res)});
 app.delete('/protected/disciplines/:id', (req, res) => {disciplineController.deleteDiscipline(req, res)});
 app.patch('/protected/disciplines/:id', (req, res) => {disciplineController.patchDiscipline(req, res)});

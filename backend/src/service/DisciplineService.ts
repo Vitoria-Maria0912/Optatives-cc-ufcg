@@ -1,8 +1,7 @@
+import { DisciplineAlreadyRegisteredError, InvalidFieldError, NotFoundError } from "../errorHandler/ErrorHandler";
 import { DisciplineRepository, DisciplineRepositoryInterface } from "../repository/DisciplineRepository";
 import { DisciplineDTO } from "../dtos/DisciplineDTO";
 import { Discipline } from "../model/Discipline";
-import { NotFoundError } from "../errorHandler/NotFoundError";
-import { InvalidFieldError } from "../errorHandler/InvalidFieldError";
 
 export interface DisciplineServiceInterface {
     createDiscipline(disciplineDTO:  DisciplineDTO): Promise<DisciplineDTO>;
@@ -21,6 +20,11 @@ export class DisciplineService implements DisciplineServiceInterface {
     private disciplineRepository: DisciplineRepositoryInterface = new DisciplineRepository; 
     
     async createDiscipline(disciplineDTO: DisciplineDTO): Promise<DisciplineDTO> {
+        try{await this.getOneDisciplineByName(disciplineDTO.name) } 
+        catch (error) {
+            if (error instanceof NotFoundError && error.message === `Discipline not found!`) {
+                throw new DisciplineAlreadyRegisteredError('Discipline already exists!'); }
+        }
         let discipline = new Discipline(disciplineDTO);  
         this.validate(discipline);
         return await this.disciplineRepository.createDiscipline(discipline);
@@ -105,17 +109,10 @@ export class DisciplineService implements DisciplineServiceInterface {
     }
 
     private validate(discipline: Discipline): boolean {
-        
-        // Há um bug aq, tem q mudar para enum
-        // if(!discipline.available) { throw new InvalidFieldError(`Availability of discipline cannot be empty!`); }
 
         const stringProperties = [
             { name: 'name', value: discipline.name },
             { name: 'acronym', value: discipline.acronym },
-            { name: 'frequency', value: discipline.frequency },
-            { name: 'description', value: discipline.description },
-            { name: 'teacher', value: discipline.teacher },
-            { name: 'schedule', value: discipline.schedule }
         ];    
 
         stringProperties.forEach(property => {
