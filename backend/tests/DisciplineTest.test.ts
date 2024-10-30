@@ -12,7 +12,7 @@ describe('DisciplineController', () => {
             name: 'Web II',
             acronym: 'Web II',
             frequency: Frequency.SOMETIMES,
-            available: Available.TRUE,
+            available: Available.YES,
             description: 'Backend for web development',
             pre_requisites: [],
             post_requisites: [],
@@ -45,7 +45,7 @@ describe('DisciplineController', () => {
             name: 'Web II',
             acronym: 'Web II',
             frequency: Frequency.SOMETIMES,
-            available: Available.TRUE,
+            available: Available.YES,
             description: 'Backend for web development',
             pre_requisites: [],
             post_requisites: [],
@@ -73,7 +73,7 @@ describe('DisciplineController', () => {
             name: 'Web II',
             acronym: 'Web II',
             frequency: Frequency.SOMETIMES,
-            available: Available.TRUE,
+            available: Available.YES,
             description: 'Backend for web development',
             pre_requisites: [],
             post_requisites: [],
@@ -90,7 +90,7 @@ describe('DisciplineController', () => {
 
     test("patchDiscipline should return 'No disciplines found!'", async () => {
 
-        const updateData = { available: Available.FALSE };
+        const updateData = { available: Available.NO };
 
         const response = await request(app).patch('/protected/disciplines/1').send(updateData);
 
@@ -105,7 +105,7 @@ describe('DisciplineController', () => {
             name: 'Web II',
             acronym: 'Web II',
             frequency: 'SOMETIMES',
-            available: Available.TRUE,
+            available: Available.YES,
             description: 'Backend for web development',
             pre_requisites: [],
             post_requisites: [],
@@ -117,14 +117,14 @@ describe('DisciplineController', () => {
             .post('/protected/disciplines')
             .send(disciplineData);
 
-        const updateData = { available: Available.FALSE };
+        const updateData = { available: Available.NO };
 
         const response = await request(app)
            .patch('/protected/disciplines/1')
            .send(updateData);
 
         expect(response.status).toBe(200);
-        expect(response.body.discipline.available).toBe(Available.FALSE);
+        expect(response.body.discipline.available).toBe(Available.NO);
 
         expect(response.body).toEqual({
             message: "Discipline's field updated successfully!",
@@ -133,7 +133,7 @@ describe('DisciplineController', () => {
                 name: 'Web II',
                 acronym: 'Web II',
                 frequency: 'SOMETIMES',
-                available: Available.FALSE,
+                available: Available.NO,
                 description: 'Backend for web development',
                 pre_requisites: [],
                 post_requisites: [],
@@ -148,7 +148,7 @@ describe('DisciplineController', () => {
             name: 'Web II',
             acronym: 'Web II',
             frequency: 'SOMETIMES',
-            available: Available.TRUE,
+            available: Available.YES,
             description: 'Backend for web development',
             pre_requisites: [],
             post_requisites: [],
@@ -171,7 +171,7 @@ describe('DisciplineController', () => {
             name: 'Web II',
             acronym: 'Web II',
             frequency: 'SOMETIMES',
-            available: Available.TRUE,
+            available: Available.YES,
             description: 'Backend for web development',
             pre_requisites: [],
             post_requisites: [],
@@ -184,7 +184,7 @@ describe('DisciplineController', () => {
             name: 'Verificação e Validação de Software',
             acronym: 'VeV',
             frequency: 'ALWAYS',
-            available: Available.TRUE,
+            available: Available.YES,
             description: 'Tests for software engineering',
             pre_requisites: ["ES", "PSoft"],
             post_requisites: [],
@@ -218,7 +218,7 @@ describe('DisciplineController', () => {
             name: 'Web II',
             acronym: 'Web II',
             frequency: 'SOMETIMES',
-            available: Available.TRUE,
+            available: Available.YES,
             description: 'Backend for web development',
             pre_requisites: [],
             post_requisites: [],
@@ -236,7 +236,7 @@ describe('DisciplineController', () => {
                 name: 'Web II',
                 acronym: 'Web II',
                 frequency: 'SOMETIMES',
-                available: Available.TRUE,
+                available: Available.YES,
                 description: 'Backend for web development',
                 pre_requisites: [],
                 post_requisites: [],
@@ -261,7 +261,7 @@ describe('DisciplineController', () => {
             name: 'Web II',
             acronym: 'Web II',
             frequency: 'SOMETIMES',
-            available: Available.TRUE,
+            available: Available.YES,
             description: 'Backend for web development',
             pre_requisites: [],
             post_requisites: [],
@@ -279,7 +279,7 @@ describe('DisciplineController', () => {
                 name: 'Web II',
                 acronym: 'Web II',
                 frequency: 'SOMETIMES',
-                available: Available.TRUE,
+                available: Available.YES,
                 description: 'Backend for web development',
                 pre_requisites: [],
                 post_requisites: [],
@@ -301,7 +301,7 @@ describe('DisciplineController', () => {
             name: 'Web II',
             acronym: 'Web II',
             frequency: 'SOMETIMES',
-            available: Available.TRUE,
+            available: Available.YES,
             description: 'Backend for web development',
             pre_requisites: [],
             post_requisites: [],
@@ -313,7 +313,7 @@ describe('DisciplineController', () => {
             name: 'Verificação e Validação de Software',
             acronym: 'VeV',
             frequency: 'ALWAYS',
-            available: Available.TRUE,
+            available: Available.YES,
             description: 'Tests for software engineering',
             pre_requisites: ["ES", "PSoft"],
             post_requisites: [],
@@ -326,7 +326,7 @@ describe('DisciplineController', () => {
             name: 'Processamento de Linguagem Natural',
             acronym: 'PLN',
             frequency: 'SOMETIMES',
-            available: Available.FALSE,
+            available: Available.NO,
             description: 'Machine Learning introduction',
             pre_requisites: ["IA", "Linear"],
             post_requisites: [],
@@ -339,7 +339,7 @@ describe('DisciplineController', () => {
             name: 'Interface Humano-Computador',
             acronym: 'IHC',
             frequency: 'ALWAYS',
-            available: Available.TRUE,
+            available: Available.YES,
             description: 'Using Figma to create user interface (UX)',
             pre_requisites: [],
             post_requisites: [],

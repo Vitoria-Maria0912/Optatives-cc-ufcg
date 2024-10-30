@@ -19,7 +19,7 @@ model Discipline {
   acronym          String     
   teacher          String     @default("Undefined")
   frequency        Frequency  @default(ALWAYS)
-  available        Available  @default(TRUE)
+  available        Available  @default(YES)
   description      String
   pre_requisites   String[] 
   post_requisites  String[] 
@@ -32,6 +32,6 @@ enum Frequency {
 }
 
 enum Available {
-  TRUE
-  FALSE
+  YES
+  NO
 }

@@ -3,7 +3,6 @@
 # dependencies
 /backend/prisma/migrations
 /backend/dist
-/node_modules
 /.pnp
 .pnp.js
 
