@@ -8,7 +8,7 @@ export const deleteAllDisciplines = async () => axios.delete(API_URL_PROTECTED);
 export const deleteDiscipline = async (id) => axios.delete(`${API_URL_PROTECTED}/${id}`);
 export const patchDiscipline = async (id) => axios.patch(`${API_URL_PROTECTED}/${id}`);
 export const putDiscipline = async (id) => axios.put(`${API_URL_PROTECTED}/${id}`);
-export const getOneDisciplineByID = async (id) => axios.patch(`${API_URL}/getByID/${id}`);
-export const getOneDisciplineByName = async (name) => axios.patch(`${API_URL}/getByName/${name}`);
+export const getOneDisciplineByID = async (id) => axios.get(`${API_URL}/getByID/${id}`);
+export const getOneDisciplineByName = async (name) => axios.get(`${API_URL}/getByName/${encodeURIComponent(name)}`);
 export const getAllDisciplines = async () => axios.get(API_URL);
 

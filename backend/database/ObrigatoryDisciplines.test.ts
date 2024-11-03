@@ -26,7 +26,7 @@ describe('Create all obrigatory disciplines P1', () => {
     
     it("Create `P1 e LP1` should return 'Discipline created successfully!'", async () => {
         const disciplineData = {
-            name: 'Programação 1',
+            name: 'Programação I',
             acronym: 'P1',
             frequency: Frequency.ALWAYS,
             available: Available.YES,
@@ -42,7 +42,7 @@ describe('Create all obrigatory disciplines P1', () => {
         expect(response.body.message).toBe('Discipline created successfully!');
 
         const disciplineData2 = {
-            name: 'Laboratório de Programação 1',
+            name: 'Laboratório de Programação I',
             acronym: 'LP1',
             frequency: Frequency.ALWAYS,
             available: Available.YES,

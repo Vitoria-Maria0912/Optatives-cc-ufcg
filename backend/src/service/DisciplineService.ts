@@ -2,6 +2,7 @@ import { DisciplineAlreadyRegisteredError, InvalidFieldError, NotFoundError } fr
 import { DisciplineRepository, DisciplineRepositoryInterface } from "../repository/DisciplineRepository";
 import { DisciplineDTO } from "../dtos/DisciplineDTO";
 import { Discipline } from "../model/Discipline";
+import { Prisma } from "@prisma/client";
 
 export interface DisciplineServiceInterface {
     createDiscipline(disciplineDTO:  DisciplineDTO): Promise<DisciplineDTO>;
@@ -20,14 +21,16 @@ export class DisciplineService implements DisciplineServiceInterface {
     private disciplineRepository: DisciplineRepositoryInterface = new DisciplineRepository; 
     
     async createDiscipline(disciplineDTO: DisciplineDTO): Promise<DisciplineDTO> {
-        try{await this.getOneDisciplineByName(disciplineDTO.name) } 
-        catch (error) {
-            if (error instanceof NotFoundError && error.message === `Discipline not found!`) {
-                throw new DisciplineAlreadyRegisteredError('Discipline already exists!'); }
+        try { 
+            let discipline = new Discipline(disciplineDTO);  
+            this.validate(discipline);
+            return await this.disciplineRepository.createDiscipline(discipline);
+
+        } catch (error: any) {
+            if (error instanceof Prisma.PrismaClientKnownRequestError && 
+                error.code === 'P2002') { throw new DisciplineAlreadyRegisteredError('Discipline already exists!'); 
+            } throw error;
         }
-        let discipline = new Discipline(disciplineDTO);  
-        this.validate(discipline);
-        return await this.disciplineRepository.createDiscipline(discipline);
     }
 
     async createManyDisciplines(disciplinesDTO: DisciplineDTO[]): Promise<void> {
@@ -82,22 +85,20 @@ export class DisciplineService implements DisciplineServiceInterface {
         if ((await this.getAllDisciplines()).length === 0) {
             throw new NotFoundError('No disciplines found!');
         }
-        const discipline = await this.disciplineRepository.getOneDisciplineByID(idDiscipline);
-        if (!discipline) {
-            throw new NotFoundError(`Discipline not found!`);
+        try { return await this.disciplineRepository.getOneDisciplineByID(idDiscipline);
+        } catch (error) {
+            throw new NotFoundError('Discipline not found!');
         }
-        return discipline;
     }
     
     async getOneDisciplineByName(disciplineName: string): Promise<DisciplineDTO> {
         if ((await this.getAllDisciplines()).length === 0) {
             throw new NotFoundError('No disciplines found!');
         }
-        const discipline = await this.disciplineRepository.getOneDisciplineByName(disciplineName);
-        if (!discipline) {
-            throw new NotFoundError(`Discipline not found!`);
+        try { return await this.disciplineRepository.getOneDisciplineByName(disciplineName);
+        } catch (error) {
+            throw new NotFoundError('Discipline not found!');
         }
-        return discipline;    
     }
 
     async getAllDisciplines(): Promise<DisciplineDTO[]> {
