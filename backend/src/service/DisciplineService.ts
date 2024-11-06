@@ -121,6 +121,14 @@ export class DisciplineService implements DisciplineServiceInterface {
                 throw new InvalidFieldError(`Discipline's ${property.name} cannot be empty!`);
             }
         });
+
+        discipline.pre_requisites.forEach(req => {
+            if(!req) { throw new InvalidFieldError('A pre requisite cannot be a empty word!'); }
+        });
+
+        discipline.post_requisites.forEach(req => {
+            if(!req) { throw new InvalidFieldError('A post requisite cannot be a empty word!'); }
+        });
         
         return true;
     }
