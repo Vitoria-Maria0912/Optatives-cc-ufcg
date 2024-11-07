@@ -4,8 +4,8 @@ const DisciplineCreateForm = ({ onSubmit }) => {
   const [form, setForm] = useState({
     name: '',
     acronym: '',
-    frequency: 'ALWAYS',
-    available: 'YES',
+    frequency: 'SOMETIMES',
+    available: 'NO',
     description: '',
     pre_requisites: [],
     post_requisites: [],

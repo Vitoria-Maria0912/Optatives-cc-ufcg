@@ -101,7 +101,7 @@ describe('Create all obrigatory disciplines P2', () => {
 
     it("Create `C1` should return 'Discipline created successfully!'", async () => {
         const disciplineData = {
-            name: 'Cálculo I',
+            name: 'Cálculo Diferencial e Integral I',
             acronym: 'C1',
             frequency: Frequency.ALWAYS,
             available: Available.YES,

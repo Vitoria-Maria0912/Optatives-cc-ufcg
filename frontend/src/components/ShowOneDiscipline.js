@@ -1,6 +1,6 @@
 import React from 'react';
 
-  const toPascalCase = (str) => str.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1));
+const toPascalCase = (str) => str.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1));
 
 const ShowOneDiscipline =  ({selectedDiscipline}) => {
     return (    
@@ -38,3 +38,4 @@ const ShowOneDiscipline =  ({selectedDiscipline}) => {
         </div>
 )}
 export default ShowOneDiscipline;
+export { toPascalCase };
