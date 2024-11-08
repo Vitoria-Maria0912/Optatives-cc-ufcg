@@ -61,7 +61,7 @@ const App = () => {
     try {
       const response = (await getOneDisciplineByName(name.name));
       const { id } = response.data.discipline;
-      // setShowDiscipline(response.data.discipline);
+      setShowPatchDiscipline(response.data.discipline);
       const successMessage = (await patchDiscipline(id, field, value)).data.message;
       fetchDisciplines();
       alert(successMessage);
