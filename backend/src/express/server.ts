@@ -37,4 +37,5 @@ app.patch('/protected/disciplines/:id', (req, res) => {disciplineController.patc
 app.put('/protected/disciplines/:id', (req, res) => {disciplineController.updateDiscipline(req, res)});
 app.get('/disciplines/getByID/:id', (req, res) => {disciplineController.getOneDisciplineByID(req, res)});
 app.get('/disciplines/getByName/:name', (req, res) => {disciplineController.getOneDisciplineByName(req, res)});
+app.get('/disciplines/getByAcronym/:acronym', (req, res) => {disciplineController.getOneDisciplineByAcronym(req, res)});
 app.get('/disciplines', (req, res) => {disciplineController.getAllDisciplines(req, res)});

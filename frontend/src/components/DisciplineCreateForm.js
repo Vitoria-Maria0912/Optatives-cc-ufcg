@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 
 const DisciplineCreateForm = ({ onSubmit }) => {
   const [form, setForm] = useState({
+    type: 'OBRIGATORY',
     name: '',
     acronym: '',
-    frequency: 'SOMETIMES',
     available: 'NO',
     description: '',
     pre_requisites: [],
@@ -91,10 +91,10 @@ const DisciplineCreateForm = ({ onSubmit }) => {
       </label>
       <br></br><br></br>
       <label>
-        Frequency : 
-        <select name="frequency" value={form.frequency} onChange={handleChange}>
-          <option value="ALWAYS">Always</option>
-          <option value="SOMETIMES">Sometimes</option>
+        Type : 
+        <select name="type" value={form.type} onChange={handleChange}>
+          <option value="OBRIGATORY">Obrigatory</option>
+          <option value="OPTATIVE">Optative</option>
         </select>
       </label>
       <label>

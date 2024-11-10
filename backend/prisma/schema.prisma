@@ -15,10 +15,10 @@ datasource db {
 
 model Discipline {
   id               Int        @id @default(autoincrement())
+  type             Type       @default(OBRIGATORY)
   name             String     @unique 
   acronym          String     
   teacher          String     @default("Undefined")
-  frequency        Frequency  @default(ALWAYS)
   available        Available  @default(YES)
   description      String
   pre_requisites   String[] 
@@ -26,9 +26,9 @@ model Discipline {
   schedule         String     @default("Undefined")
 }
 
-enum Frequency {
-  ALWAYS
-  SOMETIMES
+enum Type {
+  OBRIGATORY
+  OPTATIVE
 }
 
 enum Available {

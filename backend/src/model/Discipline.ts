@@ -1,10 +1,10 @@
-import { Available, Frequency } from '@prisma/client';
+import { Type, Available } from '@prisma/client';
 
 export interface DisciplineInterface {
     id: number;
+    type: Type;
     name: string;
     acronym: string;
-    frequency: Frequency;
     available: Available;
     description: string;
     pre_requisites: string[];
@@ -16,9 +16,9 @@ export interface DisciplineInterface {
 export class Discipline implements DisciplineInterface {
 
     public id: number;
+    public type: Type;
     public name: string;
     public acronym: string;
-    public frequency: Frequency;
     public available: Available;
     public description: string;
     public pre_requisites: string[];
@@ -28,9 +28,9 @@ export class Discipline implements DisciplineInterface {
 
     constructor(discipline: DisciplineInterface) {
         this.id = discipline.id;
+        this.type = discipline.type;
         this.name = discipline.name;
         this.acronym = discipline.acronym;
-        this.frequency = discipline.frequency;
         this.available = discipline.available;
         this.description = discipline.description;
         this.pre_requisites = discipline.pre_requisites;

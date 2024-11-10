@@ -13,6 +13,7 @@ export interface DisciplineServiceInterface {
     updateDiscipline(idDiscipline: number, disciplineDTO:  DisciplineDTO): Promise<void>;
     getOneDisciplineByID(idDiscipline: number): Promise<DisciplineDTO>;
     getOneDisciplineByName(disciplineName: string): Promise<DisciplineDTO>;
+    getOneDisciplineByAcronym(disciplineAcronym: string): Promise<DisciplineDTO>;
     getAllDisciplines(): Promise<DisciplineDTO[]>;
 } 
 
@@ -96,6 +97,16 @@ export class DisciplineService implements DisciplineServiceInterface {
             throw new NotFoundError('No disciplines found!');
         }
         try { return await this.disciplineRepository.getOneDisciplineByName(disciplineName);
+        } catch (error) {
+            throw new NotFoundError('Discipline not found!');
+        }
+    }
+
+    async getOneDisciplineByAcronym(disciplineAcronym: string): Promise<DisciplineDTO> {
+        if ((await this.getAllDisciplines()).length === 0) {
+            throw new NotFoundError('No disciplines found!');
+        }
+        try { return await this.disciplineRepository.getOneDisciplineByAcronym(disciplineAcronym);
         } catch (error) {
             throw new NotFoundError('Discipline not found!');
         }

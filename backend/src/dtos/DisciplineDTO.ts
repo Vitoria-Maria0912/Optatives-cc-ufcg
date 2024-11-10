@@ -1,4 +1,4 @@
-import { Available, Frequency } from "@prisma/client";
+import { Type, Available } from "@prisma/client";
 import { DisciplineInterface } from "../model/Discipline";
 import { IsNotEmpty, IsString, IsEnum, IsArray, IsNumber, IsOptional } from 'class-validator';
 
@@ -7,6 +7,9 @@ export class DisciplineDTO implements DisciplineInterface {
     @IsNumber()
     public id: number;
 
+    @IsEnum(Type)
+    public type: Type;
+
     @IsNotEmpty()
     @IsString()
     public name: string;
@@ -14,9 +17,6 @@ export class DisciplineDTO implements DisciplineInterface {
     @IsNotEmpty()
     @IsString()
     public acronym: string;
-
-    @IsEnum(Frequency)
-    public frequency: Frequency;
 
     @IsEnum(Available)
     public available: Available;
@@ -44,9 +44,9 @@ export class DisciplineDTO implements DisciplineInterface {
 
     constructor(
         id: number,
+        type: Type,
         name: string,
         acronym: string,
-        frequency: Frequency,
         available: Available,
         description: string,
         pre_requisites: string[],
@@ -55,9 +55,9 @@ export class DisciplineDTO implements DisciplineInterface {
         schedule: string
     ) {
         this.id = id;
+        this.type = type;
         this.name = name;
         this.acronym = acronym;
-        this.frequency = frequency;
         this.available = available;
         this.description = description;
         this.pre_requisites = pre_requisites;

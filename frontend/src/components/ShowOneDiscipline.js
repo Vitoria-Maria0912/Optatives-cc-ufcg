@@ -6,9 +6,9 @@ const ShowOneDiscipline =  ({selectedDiscipline}) => {
     return (    
         <div style={{ border: '1px solid #ddd', padding: '1rem', marginTop: '1rem', borderRadius: '8px' }}>
             <h2>Discipline Details</h2>
+            <p><strong>Type:</strong> {toPascalCase(selectedDiscipline.type)}</p>
             <p><strong>Name:</strong> {selectedDiscipline.name}</p>
             <p><strong>Acronym:</strong> {selectedDiscipline.acronym}</p>
-            <p><strong>Frequency:</strong> {toPascalCase(selectedDiscipline.frequency)}</p>
             <p><strong>Available:</strong> {toPascalCase(selectedDiscipline.available)}</p>
             <p><strong>Description:</strong> {selectedDiscipline.description}</p>
             <p><strong>Teacher:</strong> {selectedDiscipline.teacher}</p>
@@ -37,5 +37,6 @@ const ShowOneDiscipline =  ({selectedDiscipline}) => {
             )}
         </div>
 )}
+
 export default ShowOneDiscipline;
 export { toPascalCase };

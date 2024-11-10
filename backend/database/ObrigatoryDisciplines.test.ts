@@ -1,4 +1,4 @@
-import { Available, Frequency, PrismaClient } from '@prisma/client';
+import { Available, Type, PrismaClient } from '@prisma/client';
 import { app, closeServer } from '../src/express/server';
 import request from 'supertest';
 
@@ -10,7 +10,7 @@ describe('Create all obrigatory disciplines P1', () => {
         const disciplineData = {
             name: 'Fundamentos de Matemáticos para Ciências da Computação I',
             acronym: 'FMCC1',
-            frequency: Frequency.ALWAYS,
+            type: Type.OBRIGATORY,
             available: Available.YES,
             description: 'Introdução aos conceitos básicos de matemática para computação.',
             pre_requisites: [],
@@ -28,7 +28,7 @@ describe('Create all obrigatory disciplines P1', () => {
         const disciplineData = {
             name: 'Programação I',
             acronym: 'P1',
-            frequency: Frequency.ALWAYS,
+            type: Type.OBRIGATORY,
             available: Available.YES,
             description: 'Curso introdutório de programação e práticas laboratoriais.',
             pre_requisites: [],
@@ -44,7 +44,7 @@ describe('Create all obrigatory disciplines P1', () => {
         const disciplineData2 = {
             name: 'Laboratório de Programação I',
             acronym: 'LP1',
-            frequency: Frequency.ALWAYS,
+            type: Type.OBRIGATORY,
             available: Available.YES,
             description: 'Curso introdutório de programação e práticas laboratoriais.',
             pre_requisites: [],
@@ -62,7 +62,7 @@ describe('Create all obrigatory disciplines P1', () => {
         const disciplineData = {
             name: 'Introdução à Computação',
             acronym: 'IC',
-            frequency: Frequency.ALWAYS,
+            type: Type.OBRIGATORY,
             available: Available.YES,
             description: 'Disciplina introdutória sobre conceitos básicos de computação.',
             pre_requisites: [],
@@ -80,7 +80,7 @@ describe('Create all obrigatory disciplines P1', () => {
         const disciplineData = {
             name: 'Direito e Cidadania',
             acronym: 'DC',
-            frequency: Frequency.ALWAYS,
+            type: Type.OBRIGATORY,
             available: Available.YES,
             description: 'Exploração dos direitos e deveres na sociedade.',
             pre_requisites: [],
@@ -103,7 +103,7 @@ describe('Create all obrigatory disciplines P2', () => {
         const disciplineData = {
             name: 'Cálculo Diferencial e Integral I',
             acronym: 'C1',
-            frequency: Frequency.ALWAYS,
+            type: Type.OBRIGATORY,
             available: Available.YES,
             description: 'Introdução ao cálculo diferencial e integral.',
             pre_requisites: [],
@@ -121,7 +121,7 @@ describe('Create all obrigatory disciplines P2', () => {
         const disciplineData = {
             name: 'Economia',
             acronym: 'Economia',
-            frequency: Frequency.ALWAYS,
+            type: Type.OBRIGATORY,
             available: Available.YES,
             description: 'Estudo dos processos de produção e distribuição de bens.',
             pre_requisites: [],
@@ -139,7 +139,7 @@ describe('Create all obrigatory disciplines P2', () => {
         const disciplineData1 = {
             name: 'Programação II',
             acronym: 'P2',
-            frequency: Frequency.ALWAYS,
+            type: Type.OBRIGATORY,
             available: Available.YES,
             description: 'Desenvolvimento avançado em programação com ênfase em POO.',
             pre_requisites: ['P1', 'LP1'],
@@ -155,7 +155,7 @@ describe('Create all obrigatory disciplines P2', () => {
         const disciplineData2 = {
             name: 'Laboratório de Programação II',
             acronym: 'P2',
-            frequency: Frequency.ALWAYS,
+            type: Type.OBRIGATORY,
             available: Available.YES,
             description: 'Desenvolvimento avançado em programação com ênfase em POO.',
             pre_requisites: ['P1', 'LP1'],
@@ -173,7 +173,7 @@ describe('Create all obrigatory disciplines P2', () => {
         const disciplineData = {
             name: 'Fundamentos Matemáticos para Ciência da Computação II',
             acronym: 'FMCC2',
-            frequency: Frequency.SOMETIMES,
+            type: Type.OBRIGATORY,
             available: Available.YES,
             description: 'Estudo aprofundado de álgebra e lógica para computação.',
             pre_requisites: ['FMCC1', 'C1'],
@@ -196,7 +196,7 @@ describe('Create all obrigatory disciplines P3', () => {
         const disciplineData = {
             name: 'Álgebra Linear',
             acronym: 'Linear',
-            frequency: Frequency.ALWAYS,
+            type: Type.OBRIGATORY,
             available: Available.YES,
             description: 'Estudo de espaços vetoriais, transformações lineares e matrizes.',        
             pre_requisites: ['C1'],
@@ -215,7 +215,7 @@ describe('Create all obrigatory disciplines P3', () => {
         const disciplineData = {
             name: 'Cálculo Diferencial e Integral II',
             acronym: 'C2',
-            frequency: Frequency.ALWAYS,
+            type: Type.OBRIGATORY,
             available: Available.YES,
             description: 'Continuação de Cálculo I, abordando integrais múltiplas e séries.',
             pre_requisites: ['C1'],
@@ -234,7 +234,7 @@ describe('Create all obrigatory disciplines P3', () => {
         const disciplineData1 = {
             name: 'Estruturas de Dados e Algoritmos',
             acronym: 'EDA',
-            frequency: Frequency.ALWAYS,
+            type: Type.OBRIGATORY,
             available: Available.YES,
             description: 'Implementação de estruturas de dados e algoritmos.',
             pre_requisites: ['P2', 'LP2'],
@@ -250,7 +250,7 @@ describe('Create all obrigatory disciplines P3', () => {
         const disciplineData2 = {
             name: 'Laboratório de Estruturas de Dados e Algoritmos',
             acronym: 'LEDA',
-            frequency: Frequency.ALWAYS,
+            type: Type.OBRIGATORY,
             available: Available.YES,
             description: 'Disciplina prática para implementação de estruturas de dados e algoritmos.',
             pre_requisites: ['P2', 'LP2'],
@@ -274,7 +274,7 @@ describe('Create all obrigatory disciplines P3', () => {
 //         const disciplineData = {
 //             name: '',
 //             acronym: '',
-//             frequency: Frequency.ALWAYS,
+//             type: Type.OBRIGATORY,
 //             available: Available.YES,
 //             description: '',
 //             pre_requisites: [],
@@ -296,7 +296,7 @@ describe('Create all obrigatory disciplines P3', () => {
 //         const disciplineData = {
 //             name: '',
 //             acronym: '',
-//             frequency: Frequency.ALWAYS,
+//             type: Type.OBRIGATORY,
 //             available: Available.YES,
 //             description: '',
 //             pre_requisites: [],
@@ -318,7 +318,7 @@ describe('Create all obrigatory disciplines P3', () => {
 //         const disciplineData = {
 //             name: '',
 //             acronym: '',
-//             frequency: Frequency.ALWAYS,
+//             type: Type.OBRIGATORY,
 //             available: Available.YES,
 //             description: '',
 //             pre_requisites: [],
@@ -340,7 +340,7 @@ describe('Create all obrigatory disciplines P3', () => {
 //         const disciplineData = {
 //             name: '',
 //             acronym: '',
-//             frequency: Frequency.ALWAYS,
+//             type: Type.OBRIGATORY,
 //             available: Available.YES,
 //             description: '',
 //             pre_requisites: [],
@@ -362,7 +362,7 @@ describe('Create all obrigatory disciplines P3', () => {
 //         const disciplineData = {
 //             name: '',
 //             acronym: '',
-//             frequency: Frequency.ALWAYS,
+//             type: Type.OBRIGATORY,
 //             available: Available.YES,
 //             description: '',
 //             pre_requisites: [],
@@ -384,7 +384,7 @@ describe('Create all obrigatory disciplines P3', () => {
 //         const disciplineData = {
 //             name: '',
 //             acronym: '',
-//             frequency: Frequency.ALWAYS,
+//             type: Type.OBRIGATORY,
 //             available: Available.YES,
 //             description: '',
 //             pre_requisites: [],

@@ -11,6 +11,7 @@ export interface DisciplineRepositoryInterface {
     updateDiscipline(discipline:  Discipline, disciplineDTO:  DisciplineDTO): Promise<void>;
     getOneDisciplineByID(idDiscipline: number): Promise<Discipline>;
     getOneDisciplineByName(disciplineName: string): Promise<DisciplineDTO>;
+    getOneDisciplineByAcronym(disciplineAcronym: string): Promise<DisciplineDTO>;
     getAllDisciplines(): Promise<Discipline[]>;
 } 
 
@@ -22,9 +23,9 @@ export class DisciplineRepository implements DisciplineRepositoryInterface {
         return await this.prisma.discipline.create({
             data: {
                 id: discipline.id,
+                type: discipline.type,
                 name: discipline.name,
                 acronym: discipline.acronym,
-                frequency: discipline.frequency,
                 available: discipline.available,
                 description: discipline.description,
                 pre_requisites: discipline.pre_requisites,
@@ -39,9 +40,9 @@ export class DisciplineRepository implements DisciplineRepositoryInterface {
         await this.prisma.discipline.createMany({
             data: disciplines.map(discipline => ({
                 id: discipline.id,
+                type: discipline.type,
                 name: discipline.name,
                 acronym: discipline.acronym,
-                frequency: discipline.frequency,
                 available: discipline.available,
                 description: discipline.description,
                 pre_requisites: discipline.pre_requisites,
@@ -76,6 +77,10 @@ export class DisciplineRepository implements DisciplineRepositoryInterface {
 
     async getOneDisciplineByName(disciplineName: string): Promise<DisciplineDTO> {
         return await this.prisma.discipline.findUniqueOrThrow({ where: {name: disciplineName }})
+    }
+
+    async getOneDisciplineByAcronym(disciplineAcronym: string): Promise<DisciplineDTO> {
+        return await this.prisma.discipline.findFirstOrThrow({ where: {acronym: disciplineAcronym }})
     }
 
     async getAllDisciplines(): Promise<Discipline[]> {
