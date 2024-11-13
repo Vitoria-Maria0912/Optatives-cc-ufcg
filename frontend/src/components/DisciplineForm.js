@@ -23,7 +23,7 @@ const DisciplineForm = ({ onSubmit, submitText = "Submit" }) => {
 
     return (
         <form onSubmit={handleSubmit}>
-        <input name="name" placeholder="Name" value={form.name} onChange={handleChange} />
+        <input name="name" placeholder="Name or acronym" value={form.name} onChange={handleChange} />
         <button type="submit" style={{cursor: 'pointer', alignItems:'center'}}>{submitText}</button>
     </form>
     );

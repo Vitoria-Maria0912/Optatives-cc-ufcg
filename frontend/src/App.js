@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { getAllDisciplines, createDiscipline, deleteDiscipline, getOneDisciplineByName, patchDiscipline, putDiscipline, deleteAllDisciplines } from './services/DisciplineService';
+import { getAllDisciplines, createDiscipline, deleteDiscipline, getOneDisciplineByName, patchDiscipline, putDiscipline, deleteAllDisciplines, getOneDisciplineByAcronym } from './services/DisciplineService';
 import DisciplineCreateForm from './components/DisciplineCreateForm';
 import DisciplineForm from './components/DisciplineForm';
 import ShowOneDiscipline from './components/ShowOneDiscipline';
+import UpdateDiscipline from './components/UpdateDiscipline';
+import DisciplinePatchForm from './components/DisciplinePatchForm';
 
 const App = () => {
   const [disciplines, setDisciplines] = useState([]);
@@ -22,11 +24,15 @@ const App = () => {
 
   const handleShowOne = async (name) => {
     try {
-      const response = (await getOneDisciplineByName(name.name));
-      setShowDiscipline(response.data.discipline);
-      fetchDisciplines();
-      
-    } catch (error) { alert(error.response.data.message); }
+        let response = await getOneDisciplineByName(name.name);
+        setShowDiscipline(response.data.discipline);
+    } catch (error) {
+        try {
+            let response = await getOneDisciplineByAcronym(name.name);
+            setShowDiscipline(response.data.discipline);
+        } catch (error) { alert(error.response.data.message); }
+
+    } finally { fetchDisciplines(); }
   };
 
   const handleCreate = async (formData) => {
@@ -93,14 +99,6 @@ const App = () => {
       
       <h2 style={{color: 'indigo', textAlign:'center'}}>Delete discipline</h2>
       <DisciplineForm onSubmit={handleDelete} submitText="Delete Discipline"/>
-      
-      <h2 style={{color: 'indigo', textAlign:'center'}}>Show disciplines</h2>
-      <fetchDisciplines/>
-      <ul>
-        {disciplines.map((discipline) => (
-          <li key={discipline.id}>{discipline.name} </li>
-        ))}
-      </ul>
 
       <h2 style={{color: 'indigo', textAlign:'center'}}>Show one discipline</h2>
       <DisciplineForm onSubmit={handleShowOne} submitText="Show Discipline"/>
@@ -108,13 +106,23 @@ const App = () => {
       {showDiscipline && <ShowOneDiscipline selectedDiscipline={showDiscipline} />}
 
       <h2 style={{color: 'indigo', textAlign:'center'}}>Update discipline field</h2>
-      <DisciplineForm onSubmit={handlePatch} submitText="Show discipline to update"/>
-      <DisciplineCreateForm onSubmit={handlePatch} />
-      
+      <DisciplineForm onSubmit={handleShowOne} submitText="Show discipline to update"/>
+      <DisciplinePatchForm onSubmit={handlePatch} submitText="Update discipline field"/>
+
+      {showPatchDiscipline && <UpdateDiscipline selectedDiscipline={showPatchDiscipline} />}
+
       <h2 style={{color: 'indigo', textAlign:'center'}}>Update discipline</h2>
       <DisciplineForm onSubmit={handleUpdate} submitText="Show discipline to update"/>
-      <DisciplineCreateForm onSubmit={handleUpdate} />
-     
+
+      {showPutDiscipline && <UpdateDiscipline selectedDiscipline={showPutDiscipline} />}
+
+      <h2 style={{color: 'indigo', textAlign:'center'}}>Show disciplines</h2>
+      <ul>
+        {disciplines.map((discipline) => (
+          <li key={discipline.id}>{discipline.name} </li>
+        ))}
+      </ul>
+
     </div>
   );
 };
