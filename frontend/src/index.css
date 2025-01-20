@@ -11,3 +11,33 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.ant-layout-sider, .ant-menu {
+  background-color: #343535;
+}
+
+.ant-menu-sub {
+  background-color: #252626 !important;
+}
+
+.ant-menu-item-selected {
+  background-color: #d9643a !important;
+}
+
+.ant-layout-sider-trigger {
+  background-color: #d9643a !important;
+}
+
+
+.ant-layout, .ant-layout-header, .ant-layout-footer, .ant-layout-content > div {
+  background-color: #454647 !important;
+  color: #ebebeb !important;
+}
+
+.ant-breadcrumb span {
+  color: #ebebeb;
+}
+
+.ant-menu-submenu-selected span, .ant-menu-submenu-selected i{
+  color: #ebebeb !important;
+}

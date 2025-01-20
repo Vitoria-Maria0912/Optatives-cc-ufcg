@@ -7,89 +7,90 @@ import UpdateDiscipline from './components/UpdateDiscipline';
 import DisciplinePatchForm from './components/DisciplinePatchForm';
 
 const App = () => {
-  const [disciplines, setDisciplines] = useState([]);
-  const [showDiscipline, setShowDiscipline] = useState(null);
-  const [showPutDiscipline, setShowPutDiscipline] = useState(null); 
-  const [showPatchDiscipline, setShowPatchDiscipline] = useState(null); 
+  
+  // const [disciplines, setDisciplines] = useState([]);
+  // const [showDiscipline, setShowDiscipline] = useState(null);
+  // const [showPutDiscipline, setShowPutDiscipline] = useState(null); 
+  // const [showPatchDiscipline, setShowPatchDiscipline] = useState(null); 
 
-  useEffect(() => { fetchDisciplines();}, []);
+  // useEffect(() => { fetchDisciplines();}, []);
 
-  const fetchDisciplines = async () => {
-    try {
-      const response = await getAllDisciplines();
-      setDisciplines(response.data.disciplines);
+  // const fetchDisciplines = async () => {
+  //   try {
+  //     const response = await getAllDisciplines();
+  //     setDisciplines(response.data.disciplines);
 
-    } catch (error) {}
-  };
+  //   } catch (error) {}
+  // };
 
-  const handleShowOne = async (name) => {
-    try {
-        let response = await getOneDisciplineByName(name.name);
-        setShowDiscipline(response.data.discipline);
-    } catch (error) {
-        try {
-            let response = await getOneDisciplineByAcronym(name.name);
-            setShowDiscipline(response.data.discipline);
-        } catch (error) { alert(error.response.data.message); }
+  // const handleShowOne = async (name) => {
+  //   try {
+  //       let response = await getOneDisciplineByName(name.name);
+  //       setShowDiscipline(response.data.discipline);
+  //   } catch (error) {
+  //       try {
+  //           let response = await getOneDisciplineByAcronym(name.name);
+  //           setShowDiscipline(response.data.discipline);
+  //       } catch (error) { alert(error.response.data.message); }
 
-    } finally { fetchDisciplines(); }
-  };
+  //   } finally { fetchDisciplines(); }
+  // };
 
-  const handleCreate = async (formData) => {
-    try {
-      const successMessage = (await createDiscipline(formData)).data.message;
-      alert(successMessage);
-      fetchDisciplines();
+  // const handleCreate = async (formData) => {
+  //   try {
+  //     const successMessage = (await createDiscipline(formData)).data.message;
+  //     alert(successMessage);
+  //     fetchDisciplines();
 
-    } catch (error) { alert(error.response.data.message); }
-  };
+  //   } catch (error) { alert(error.response.data.message); }
+  // };
 
-  const handleDelete = async (name) => {
-    try {
-      const { id } = (await getOneDisciplineByName(name.name)).data.discipline;
-      const successMessage = (await deleteDiscipline(id)).data.message;
-      alert(successMessage);
-      fetchDisciplines();
+  // const handleDelete = async (name) => {
+  //   try {
+  //     const { id } = (await getOneDisciplineByName(name.name)).data.discipline;
+  //     const successMessage = (await deleteDiscipline(id)).data.message;
+  //     alert(successMessage);
+  //     fetchDisciplines();
       
-    } catch (error) { alert(error.response.data.message); }
-  };
+  //   } catch (error) { alert(error.response.data.message); }
+  // };
 
-  const handleDeleteAll = async () => {
-    try {
-      const successMessage = (await deleteAllDisciplines()).data.message;
-      alert(successMessage);
-      fetchDisciplines();
+  // const handleDeleteAll = async () => {
+  //   try {
+  //     const successMessage = (await deleteAllDisciplines()).data.message;
+  //     alert(successMessage);
+  //     fetchDisciplines();
       
-    } catch (error) { alert(error.response.data.message); }
-  };
+  //   } catch (error) { alert(error.response.data.message); }
+  // };
 
-  const handlePatch = async (name, field, value) => {
-    try {
-      const response = (await getOneDisciplineByName(name.name));
-      const { id } = response.data.discipline;
-      setShowPatchDiscipline(response.data.discipline);
-      const successMessage = (await patchDiscipline(id, field, value)).data.message;
-      fetchDisciplines();
-      alert(successMessage);
+  // const handlePatch = async (name, field, value) => {
+  //   try {
+  //     const response = (await getOneDisciplineByName(name.name));
+  //     const { id } = response.data.discipline;
+  //     setShowPatchDiscipline(response.data.discipline);
+  //     const successMessage = (await patchDiscipline(id, field, value)).data.message;
+  //     fetchDisciplines();
+  //     alert(successMessage);
       
-    } catch (error) { alert(error.response.data.message); }
-  };
+  //   } catch (error) { alert(error.response.data.message); }
+  // };
 
-  const handleUpdate = async (name, discipline) => {
-    try {
-      const response = (await getOneDisciplineByName(name.name));
-      const { id } = response.data.discipline;
-      setShowPutDiscipline(response.data.discipline);
-      const successMessage = (await putDiscipline(id, {discipline})).data.message;
-      alert(successMessage);
-      fetchDisciplines();
+  // const handleUpdate = async (name, discipline) => {
+  //   try {
+  //     const response = (await getOneDisciplineByName(name.name));
+  //     const { id } = response.data.discipline;
+  //     setShowPutDiscipline(response.data.discipline);
+  //     const successMessage = (await putDiscipline(id, {discipline})).data.message;
+  //     alert(successMessage);
+  //     fetchDisciplines();
       
-    } catch (error) { alert(error.response.data.message); }
-  };
+  //   } catch (error) { alert(error.response.data.message); }
+  // };
 
   return (
     <div>
-      <h1 style={{color: 'indigo', textAlign:'center'}}>Optatives CC_UFCG</h1>
+      {/* <h1 style={{color: 'indigo', textAlign:'center'}}>Optatives CC_UFCG</h1>
 
       <h2 style={{color: 'indigo', textAlign:'center'}}>Create discipline</h2>
       <DisciplineCreateForm onSubmit={handleCreate} />
@@ -121,8 +122,9 @@ const App = () => {
         {disciplines.map((discipline) => (
           <li key={discipline.id}>{discipline.name} </li>
         ))}
-      </ul>
+      </ul> */}
 
+      {/* <MainMenu/> */}
     </div>
   );
 };
