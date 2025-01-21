@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { getAllDisciplines, createDiscipline, deleteDiscipline, getOneDisciplineByName, patchDiscipline, putDiscipline, deleteAllDisciplines, getOneDisciplineByAcronym } from './services/DisciplineService';
-import DisciplineCreateForm from './components/DisciplineCreateForm';
-import DisciplineForm from './components/DisciplineForm';
-import ShowOneDiscipline from './components/ShowOneDiscipline';
-import UpdateDiscipline from './components/UpdateDiscipline';
-import DisciplinePatchForm from './components/DisciplinePatchForm';
+import { getAllDisciplines, createDiscipline, deleteDiscipline, getOneDisciplineByName, patchDiscipline, putDiscipline, deleteAllDisciplines, getOneDisciplineByAcronym } from './routes/DisciplineRoutes';
+import DisciplineCreateForm from './components/forms/DisciplineCreateForm';
+import DisciplineForm from './components/forms/DisciplineForm';
+import ShowOneDiscipline from './components/forms/ShowOneDiscipline';
+import UpdateDiscipline from './components/forms/UpdateDiscipline';
+import DisciplinePatchForm from './components/forms/DisciplinePatchForm';
+import CenterMain from './components/layout/CenterMain';
 
 const App = () => {
+  
   const [disciplines, setDisciplines] = useState([]);
   const [showDiscipline, setShowDiscipline] = useState(null);
   const [showPutDiscipline, setShowPutDiscipline] = useState(null); 
@@ -90,8 +92,9 @@ const App = () => {
   return (
     <div>
       <h1 style={{color: 'indigo', textAlign:'center'}}>Optatives CC_UFCG</h1>
+      <CenterMain/>
 
-      <h2 style={{color: 'indigo', textAlign:'center'}}>Create discipline</h2>
+      {/* <h2 style={{color: 'indigo', textAlign:'center'}}>Create discipline</h2>
       <DisciplineCreateForm onSubmit={handleCreate} />
 
       <h2 style={{color: 'indigo', textAlign:'center'}}>Delete all disciplines</h2>
@@ -121,7 +124,7 @@ const App = () => {
         {disciplines.map((discipline) => (
           <li key={discipline.id}>{discipline.name} </li>
         ))}
-      </ul>
+      </ul> */}
 
     </div>
   );
