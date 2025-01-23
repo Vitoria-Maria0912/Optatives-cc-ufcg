@@ -1,7 +1,6 @@
 import React from "react";
-// import { Route, Routes, useNavigate } from "react-router-dom";
+// import { Route, Routes } from "react-router-dom";
 import { Breadcrumb } from "antd";
-
 import "./style.css"
 
 export const Home = () => { 
@@ -61,33 +60,6 @@ export const Home = () => {
                     </div>
                 </div>
             </div>
-        </div>
-    );
-}
-
-export const UserLinks = () => {
-
-    return (
-        <div>
-            <Breadcrumb >
-            <Breadcrumb.Item>Usuários</Breadcrumb.Item>
-            </Breadcrumb>
-        </div>
-    );
-}
-
-export const LoginLinks = () => {
-    return (
-        <div>
-            <h1>Create Authentication</h1>
-        </div>
-    );
-}
-
-export const PlanningLinks = () => {
-    return (
-        <div>
-            <h1>Planning</h1>
         </div>
     );
 }

@@ -2,11 +2,12 @@ import React, { useState } from 'react';
 import { HomeOutlined, UserOutlined, BookOutlined, UsbOutlined, BulbOutlined, LinkOutlined } from '@ant-design/icons';
 import { Menu, Layout } from 'antd';
 import { Route, Routes, useNavigate } from "react-router-dom";
-import * as Main from './components/layout/CenterMain.js'
+import { Home, About } from './components/layout/CenterMain.js'
 import './style.css';
 import UserService from './services/UserService.js';
 import DisciplineService from './services/DisciplineService.js';
 import PlanningService from './services/PlanningService.js';
+import LoginService from './services/LoginService.js';
 
 const App = () => {
 
@@ -31,7 +32,7 @@ const App = () => {
               <Menu.Item key="about" icon={<BulbOutlined />} onClick={() => navigate('/about')}>About</Menu.Item>
               <Menu.Item key="login" icon={<LinkOutlined />} onClick={ () => navigate('/auth/login')}>Criar login</Menu.Item>
 
-              <SubMenu key="users" icon={<UserOutlined />} title="Usuário" >
+              <SubMenu key="users" icon={<UserOutlined />} title="Usuário">
                 <Menu.Item key="11" onClick={ () => navigate('/users/create')}>Criar novo usuário</Menu.Item>
                 <Menu.Item key="12" onClick={ () => navigate('/users/delete')}>Deletar usuário</Menu.Item>
                 <Menu.Item key="13" onClick={ () => navigate('/users/update')}>Editar usuário</Menu.Item>
@@ -59,10 +60,10 @@ const App = () => {
             <Header style={{ background: '#fff', padding: 0 }} />
             <Content style={{ margin: '0 16px' }}>
                 <Routes>
-                    <Route path="/" exact element={<Main.Home/>} />
-                    <Route path="/about" exact element={<Main.About/>} />
+                    <Route path="/" exact element={<Home/>} />
+                    <Route path="/about" exact element={<About/>} />
                     <Route path="/users" element={<UserService/>} />
-                    <Route path="/auth/login" exact element={<UserService/>} />
+                    <Route path="/auth/login" exact element={<LoginService/>} />
                     <Route path="/disciplines" element={<DisciplineService/>} />
                     <Route path="/planning" exact element={<PlanningService/>} />
                 </Routes>

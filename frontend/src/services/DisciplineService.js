@@ -7,7 +7,7 @@ const DisciplineService = () => {
   return (
     <div>
         <Breadcrumb>
-        <Breadcrumb.Item>Disciplinas</Breadcrumb.Item>
+          <Breadcrumb.Item>Disciplinas</Breadcrumb.Item>
         </Breadcrumb>
         <Routes>
             <Route path="/create" element={ <></> }/> 
