@@ -1,0 +1,31 @@
+.planning {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 550px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.period {
+    margin: 20px 0px;
+    margin-right: 10px;
+    display: inline-block;
+    height: 500px;
+    border: 1px solid #ebebeb;
+    padding: 5px;
+}
+
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    height: 100px;
+    background-color: #d9643a;
+    margin: 10px 0px;
+}
+
+.card .title {
+    font-size: 20px;
+    font-weight: bolder;
+}
