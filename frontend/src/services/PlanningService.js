@@ -2,12 +2,12 @@ import React from 'react';
 import { Breadcrumb } from 'antd';
 import { Route, Routes } from 'react-router-dom';
 
-const DisciplineService = () => {
+const PlanningService = () => {
 
   return (
     <div>
         <Breadcrumb>
-        <Breadcrumb.Item>Disciplinas</Breadcrumb.Item>
+        <Breadcrumb.Item>Planning</Breadcrumb.Item>
         </Breadcrumb>
         <Routes>
             <Route path="/create" element={ <></> }/> 
@@ -20,4 +20,4 @@ const DisciplineService = () => {
   );
 };
 
-export default DisciplineService;
+export default PlanningService;

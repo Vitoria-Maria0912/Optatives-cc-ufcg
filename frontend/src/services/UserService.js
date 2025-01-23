@@ -2,14 +2,15 @@ import React from 'react';
 import { Breadcrumb } from 'antd';
 import { Route, Routes } from 'react-router-dom';
 
-const DisciplineService = () => {
+const UserService = () => {
 
   return (
     <div>
         <Breadcrumb>
-        <Breadcrumb.Item>Disciplinas</Breadcrumb.Item>
+        <Breadcrumb.Item>Usuários</Breadcrumb.Item>
         </Breadcrumb>
         <Routes>
+            <Route path="/auth/login" element={<></>} />
             <Route path="/create" element={ <></> }/> 
             <Route path="/delete" element={ <></> }/>
             <Route path="/update" element={ <></> }/> 
@@ -20,4 +21,4 @@ const DisciplineService = () => {
   );
 };
 
-export default DisciplineService;
+export default UserService;

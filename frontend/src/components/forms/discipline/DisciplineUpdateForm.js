@@ -35,7 +35,6 @@ const UpdateDiscipline =  ({selectedDiscipline}) => {
                 </ul>
             </div>
             )}
-            {/* <button onClick={() => handleUpdate(selectedDiscipline)}>Update Discipline</button> */}
         </div>
     )}
 

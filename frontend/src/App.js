@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
-import { HomeOutlined, UserOutlined, BookOutlined, UsbOutlined, BulbOutlined } from '@ant-design/icons';
+import { HomeOutlined, UserOutlined, BookOutlined, UsbOutlined, BulbOutlined, LinkOutlined } from '@ant-design/icons';
 import { Menu, Layout } from 'antd';
 import { Route, Routes, useNavigate } from "react-router-dom";
 import * as Main from './components/layout/CenterMain.js'
 import './style.css';
+import UserService from './services/UserService.js';
+import DisciplineService from './services/DisciplineService.js';
+import PlanningService from './services/PlanningService.js';
 
 const App = () => {
 
@@ -25,27 +28,31 @@ const App = () => {
           </div>
           <Menu theme="dark" defaultSelectedKeys={['1']} mode="vertical">
               <Menu.Item key="home" icon={<HomeOutlined />} onClick={() => navigate('/')}>Home</Menu.Item>
-              <Menu.Item key="2" icon={<BulbOutlined />} onClick={() => navigate('/about')}>About</Menu.Item>
+              <Menu.Item key="about" icon={<BulbOutlined />} onClick={() => navigate('/about')}>About</Menu.Item>
+              <Menu.Item key="login" icon={<LinkOutlined />} onClick={ () => navigate('/auth/login')}>Criar login</Menu.Item>
 
-              <SubMenu key="sub1" icon={<UserOutlined />} title="Usuário" onClick={() => navigate('/users')}>
-                <Menu.Item key="11" onClick={() => navigate('/create')}>Criar novo usuário</Menu.Item>
-                <Menu.Item key="12">Criar login</Menu.Item>
-                <Menu.Item key="13">Editar usuário</Menu.Item>
-                <Menu.Item key="14">Visualizar usuários</Menu.Item>
+              <SubMenu key="users" icon={<UserOutlined />} title="Usuário" >
+                <Menu.Item key="11" onClick={ () => navigate('/users/create')}>Criar novo usuário</Menu.Item>
+                <Menu.Item key="12" onClick={ () => navigate('/users/delete')}>Deletar usuário</Menu.Item>
+                <Menu.Item key="13" onClick={ () => navigate('/users/update')}>Editar usuário</Menu.Item>
+                <Menu.Item key="14" onClick={ () => navigate('/users/getOne')}>Visualizar usuário</Menu.Item>
+                <Menu.Item key="15" onClick={ () => navigate('/users/getAll')}>Visualizar todos os usuários</Menu.Item>
               </SubMenu>
-              <SubMenu key="sub2" icon={<UsbOutlined />} title="Disciplina" onClick={() => navigate('/disciplines')}>
-                <Menu.Item key="21">Criar nova disciplina</Menu.Item>
-                <Menu.Item key="22">Apagar disciplina</Menu.Item>
-                <Menu.Item key="23">Editar disciplina</Menu.Item>
-                <Menu.Item key="24">Visualizar todas as disciplinas</Menu.Item>
-                <Menu.Item key="25">Visualizar disciplina</Menu.Item>                
+              <SubMenu key="discipline" icon={<UsbOutlined />} title="Disciplina">
+                <Menu.Item key="21" onClick={() => navigate('/disciplines/create')}>Criar nova disciplina</Menu.Item>
+                <Menu.Item key="22" onClick={() => navigate('/disciplines/delete')}>Apagar disciplina</Menu.Item>
+                <Menu.Item key="23" onClick={() => navigate('/disciplines/update')}>Editar disciplina</Menu.Item>
+                <Menu.Item key="24" onClick={() => navigate('/disciplines/getOne')}>Visualizar disciplina</Menu.Item>                
+                <Menu.Item key="25" onClick={() => navigate('/disciplines/getAll')}>Visualizar todas as disciplinas</Menu.Item>
               </SubMenu>
-              <SubMenu key="sub3" icon={<BookOutlined />} title="Planejamento" onClick={() => navigate('/planning')}>
-                <Menu.Item key="31">Criar planejamento</Menu.Item>
-                <Menu.Item key="32">Salvar planejamento</Menu.Item>
-                <Menu.Item key="33">Editar planejamento</Menu.Item>
-                <Menu.Item key="34">Apagar planejamento</Menu.Item>
+              <SubMenu key="planning" icon={<BookOutlined />} title="Planejamento">
+                <Menu.Item key="31" onClick={() => navigate('/planning/create')}>Criar planejamento</Menu.Item>
+                <Menu.Item key="32" onClick={() => navigate('/planning/save')}>Salvar planejamento</Menu.Item>
+                <Menu.Item key="34" onClick={() => navigate('/planning/delete')}>Apagar planejamento</Menu.Item>
+                <Menu.Item key="33" onClick={() => navigate('/planning/update')}>Editar planejamento</Menu.Item>
+                <Menu.Item key="34" onClick={() => navigate('/planning/getOne')}>Visualizar planejamento</Menu.Item>
               </SubMenu>
+
           </Menu>
           </Sider>
           <Layout>
@@ -54,10 +61,10 @@ const App = () => {
                 <Routes>
                     <Route path="/" exact element={<Main.Home/>} />
                     <Route path="/about" exact element={<Main.About/>} />
-                    <Route path="/users" exact element={<Main.UserLinks/>} />
-                    <Route path="/auth/login" exact element={<Main.LoginLinks/>} />
-                    <Route path="/disciplines" exact element={<Main.DisciplineLinks/>} />
-                    <Route path="/planning" exact element={<Main.PlanningLinks/>} />
+                    <Route path="/users" element={<UserService/>} />
+                    <Route path="/auth/login" exact element={<UserService/>} />
+                    <Route path="/disciplines" element={<DisciplineService/>} />
+                    <Route path="/planning" exact element={<PlanningService/>} />
                 </Routes>
             </Content>
             <Footer style={{ textAlign: 'center' }}>Ant Design © 2018 Created by Ant UED</Footer>
