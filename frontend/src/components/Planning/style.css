@@ -1,0 +1,17 @@
+.planning {
+    display: flex;
+    flex-wrap: nowrap;
+    height: 550px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.period {
+    margin: 20px 0px;
+    margin-right: 10px;
+    display: inline-block;
+    height: 500px;
+    min-width: 212px;
+    border: 1px solid #ebebeb;
+    padding: 5px;
+}
