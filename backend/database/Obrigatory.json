@@ -1,0 +1,274 @@
+[
+    {
+      "id": 0,
+      "name": "DIREITO E CIDADANIA",
+      "acronym": "D&C"
+    },
+    {
+      "id": 1,
+      "acronym": "FMCC1",
+      "name": "FUND DE MATEMÁTICA P/ C.DA COMPUTAÇÃO I",
+      "post_requisites": [
+        "CÁLCULO DIFERENCIAL E INTEGRAL I",
+        "FUND DE MATEMÁTICA P/ C.DA COMPUTAÇÃO II",
+        "TEORIA DOS GRAFOS"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "INTRODUÇÃO À COMPUTAÇÃO",
+      "acronym": "IC",
+      "post_requisites": [
+        "ORGANIZAÇÃO E ARQUIT. DE COMPUTADORES",
+        "REDES DE COMPUTADORES"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "LABORATÓRIO DE PROGRAMAÇÃO I",
+      "acronym": "LP1",
+      "post_requisites": [
+        "LABORATÓRIO DE PROGRAMAÇÃO II",
+        "PROGRAMAÇÃO II"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "PROGRAMAÇÃO I",
+      "acronym": "P1",
+      "post_requisites": [
+        "LABORATÓRIO DE PROGRAMAÇÃO II",
+        "PROGRAMAÇÃO II"
+      ]
+    },
+    {
+      "id": 5,
+      "name": "CÁLCULO DIFERENCIAL E INTEGRAL I",
+      "acronym": "C1",
+      "pre_requisites": [
+        "FUND DE MATEMÁTICA P/ C.DA COMPUTAÇÃO I"
+      ],
+      "post_requisites": [
+        "CÁLCULO DIFERENCIAL E INTEGRAL II"
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Economia",
+      "acronym": "Economia"
+    },
+    {
+      "id": 7,
+      "name": "FUND DE MATEMÁTICA P/ C.DA COMPUTAÇÃO II",
+      "acronym": "FMCC2",
+      "pre_requisites": [
+        "FUND DE MATEMÁTICA P/ C.DA COMPUTAÇÃO I"
+      ],
+      "post_requisites": [
+        "ÁLGEBRA LINEAR I",
+        "LÓGICA PARA COMPUTAÇÃO"
+      ]
+    },
+    {
+      "id": 8,
+      "name": "LABORATÓRIO DE PROGRAMAÇÃO II",
+      "acronym": "LP2",
+      "pre_requisites": [
+        "PROGRAMAÇÃO I",
+        "LABORATÓRIO DE PROGRAMAÇÃO I"
+      ],
+      "post_requisites": [
+        "LAB.DE ESTRUTURAS DE DADOS E ALGORITMOS",
+        "ESTRUTURAS DE DADOS E ALGORITMOS",
+        "PARADIGMAS DE LINGUAGEM DE PROGRAMAÇÃO",
+        "TEORIA DOS GRAFOS",
+        "ENGENHARIA DE SOFTWARE"
+      ]
+    },
+    {
+      "id": 9,
+      "name": "PROGRAMAÇÃO II",
+      "acronym": "P2",
+      "pre_requisites": [
+        "PROGRAMAÇÃO I",
+        "LABORATÓRIO DE PROGRAMAÇÃO I"
+      ],
+      "post_requisites": [
+        "LAB.DE ESTRUTURAS DE DADOS E ALGORITMOS",
+        "ESTRUTURAS DE DADOS E ALGORITMOS",
+        "PARADIGMAS DE LINGUAGEM DE PROGRAMAÇÃO",
+        "TEORIA DOS GRAFOS",
+        "ENGENHARIA DE SOFTWARE"
+      ]
+    },
+    {
+      "id": 10,
+      "acronym": "Linear",
+      "name": "Álgebra Linear I",
+      "pre_requisites": ["Fundamentos de Matemática para Ciência da Computação II"]
+    },
+    {
+      "id": 11,
+      "acronym": "C2",
+      "name": "Cálculo Diferencial e Integral II",
+      "pre_requisites": ["Cálculo Diferencial e Integral I"],
+      "post_requisites": ["Introdução à Probabilidade"]
+    },
+    {
+      "id": 12,
+      "acronym": "EDA",
+      "name": "Estruturas de Dados e Algoritmos",
+      "pre_requisites": ["Programação II", "Laboratório de Programação II"],
+      "post_requisites": ["Banco de Dados", "Projeto de Software", "Análise e Técnicas de Algoritmos"]
+    },
+    {
+      "id": 13,
+      "acronym": "LEDA",
+      "name": "Laboratório de Estruturas de Dados e Algoritmos",
+      "pre_requisites": ["Programação II", "Laboratório de Programação II"],
+      "post_requisites": ["Projeto de Software"]
+    },
+    {
+      "id": 14,
+      "acronym": "Lógica",
+      "name": "Lógica para Computação",
+      "pre_requisites": ["Fundamentos Matemáticos para Ciência da Computação II"],
+      "post_requisites": ["Teoria da Computação"]
+    },
+    {
+      "id": 15,
+      "acronym": "BD1",
+      "name": "Banco de Dados I",
+      "pre_requisites": ["Estrutura de Dados e Algoritmos"]
+    },
+    {
+      "id": 16,
+      "acronym": "PROB",
+      "name": "Introdução à Probabilidade",
+      "pre_requisites": ["Cálculo Diferencial e Integral II"],
+      "post_requisites": ["Estatística Aplicada"]
+    },
+    {
+      "id": 17,
+      "acronym": "OAC",
+      "name": "Organização e Arquitetura de Computadores",
+      "pre_requisites": ["Introdução à Computação"],
+      "post_requisites": ["Sistemas Operacionais"]
+    },
+    {
+      "id": 18,
+      "acronym": "PLP",
+      "name": "Paradigmas de Linguagens de Programação",
+      "pre_requisites": ["Programação II", "Laboratório de Programação II"],
+      "post_requisites": ["Compiladores"]
+    },
+    {
+      "id": 19,
+      "acronym": "TC",
+      "name": "Teoria da Computação",
+      "pre_requisites": ["Lógica para Computação"],
+      "post_requisites": ["Inteligência Artificial"]
+    },
+    {
+      "id": 20,
+      "acronym": "Grafos",
+      "name": "Teoria dos Grafos",
+      "pre_requisites": ["Fundamentos Matemáticos para Ciência da Computação I", "Programação II", "Laboratório de Programação II"],
+      "post_requisites": ["Análise e Técnicas de Algoritmos"]
+    },
+    {
+      "id": 21,
+      "acronym": "ES",
+      "name": "Engenharia de Software",
+      "pre_requisites": ["Programação II", "Laboratório de Programação II"],
+      "post_requisites": ["Projeto em Computação I"]
+    },
+    {
+      "id": 22,
+      "acronym": "Estatística",
+      "name": "Estatística Aplicada",
+      "pre_requisites": ["Introdução à Probabilidade"],
+      "post_requisites": ["Metodologia Científica"]
+    },
+    {
+      "id": 23,
+      "acronym": "IA",
+      "name": "Inteligência Artificial",
+      "pre_requisites": ["Teoria da Computação"]
+    },
+    {
+      "id": 24,
+      "acronym": "Psoft",
+      "name": "Projeto de Software",
+      "pre_requisites": ["Estrutura de Dados e Algoritmos", "Laboratório de Estrutura de Dados e Algoritmos"],
+      "post_requisites": ["Análise de Sistemas"]
+    },
+    {
+      "id": 25,
+      "acronym": "Redes",
+      "name": "Redes de Computadores",
+      "pre_requisites": ["Introdução à Computação"]
+    },
+    {
+      "id": 26,
+      "acronym": "SO",
+      "name": "Sistemas Operacionais",
+      "pre_requisites": ["Organização e Arquitetura de Computadores"],
+      "post_requisites": ["Programação Concorrente"]
+    },
+    {
+      "id": 27,
+      "name": "Análise de Sistemas",
+      "acronym": "AS",
+      "pre_requisites": ["Projeto de Software"],
+      "post_requisites": ["Projeto em Computação I"]
+    },
+    {
+      "id": 28,
+      "acronym": "ATAL",
+      "name": "Análise e Técnicas de Algoritmos",
+      "pre_requisites": ["Teoria dos Grafos", "Estruturas de Dados"]
+    },
+    {
+      "id": 29,
+      "name": "Programação Concorrente",
+      "acronym": "PC",
+      "pre_requisites": ["Sistemas Operacionais"]
+    },
+    {
+      "id": 30,
+      "acronym": "Compila",
+      "name": "Compiladores",
+      "pre_requisites": ["Teoria da Computação", "Paradigmas de Linguagens de Programação"]
+    },
+    {
+      "id": 31,
+      "acronym": "Metodologia",
+      "name": "Metodologia Científica",
+      "pre_requisites": ["Estatística"],
+      "post_requisites": ["Trabalho de Conclusão de Curso"]
+    },
+    {
+      "id": 32,
+      "name": "Língua Portuguesa",
+      "acronym": "Português",
+      "post_requisites": ["Trabalho de Conclusão de Curso"]
+    },
+    {
+      "id": 33,
+      "name": "Projeto em Computação I",
+      "acronym": "P1",
+      "pre_requisites": ["Engenharia de Software", "Análise de Sistemas"],
+      "post_requisites": ["Projeto em Computação II"]
+    },
+    {
+      "id": 34,
+      "acronym": "P2",
+      "name": "Projeto em Computação II"
+    },
+    {
+      "id": 35,
+      "acronym": "TCC",
+      "name": "Trabalho de Conclusão de Curso"
+    }
+] 

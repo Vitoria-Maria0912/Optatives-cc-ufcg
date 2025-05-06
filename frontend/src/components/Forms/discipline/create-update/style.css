@@ -1,0 +1,122 @@
+.create-discipline-form label {
+    margin: 0 50% 0 50%;
+    color: #d9643a;
+    font-weight: 600;
+}
+
+.create-discipline-form input {
+    width: 50%;
+    margin: 0 50% 15px 30%;
+    padding-left: 30px;
+    color: #b45430;
+}
+
+.create-discipline-form label select {
+    color: #ffffff;
+    background-color: #d9643a !important;
+}
+
+.create-discipline-form button {
+    margin: 20px 40% 0 50%;
+    padding: 10px;
+    width: 130px;
+    border: none;
+    border-radius: 4px;
+    color: white;
+    background-color: #d9643a;
+}
+
+.create-discipline-form button:hover {
+    cursor: pointer;
+    background-color: #b45430;
+}
+
+.create-discipline-form #schedule-label input,
+.create-discipline-form #professor-label input { 
+    margin: 0 0 0 0 !important;
+    width: 100%; 
+    height: 25px;
+    left: 90%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.create-discipline-form #description-label textarea {
+    resize: none;
+    margin: 0 50% 0px 30%;
+    padding: 10px;
+    color: #d9643a
+}
+
+.create-discipline-form .plus-icon-req {
+    position: relative;
+    cursor: pointer;
+    left: 2.5%;
+    top: 46.5px;
+    z-index: 2;
+    color: rgb(255, 255, 255);
+}
+
+.create-discipline-form .remove-req {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: 44px;
+    right: 48.8%;
+    cursor: pointer; 
+    width: 0 !important;
+    height: 0 !important;
+    align-items: center;
+}
+
+.create-discipline-form .trash-icon {
+    position: absolute;
+    color: rgb(0, 0, 0); 
+    opacity: 50%;
+    font-size: 1px; 
+}
+
+.create-discipline-form .form-group { width: 600px; }
+.create-discipline-form .form-group input, textarea { width: 100%; }
+.create-discipline-form .form-group label, input, textarea {
+    display: flex;
+    margin: 15px 0 0 15px !important;
+}
+
+.create-discipline-form .form-group-2 {
+    display: grid;
+    grid-template-rows: 0fr 0fr;
+    position: absolute;
+    margin-left: 55%;
+    width: 300px;
+    height: 322px;
+    top: 13.8%;
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.create-discipline-form .form-group-2 label { margin: 0 0 0 0; }
+
+.create-discipline-form .form-group-2 select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.create-discipline-form .pre-req-button, .post-req-button {
+    margin: 20px 0 0 16px !important;
+}
+
+.create-discipline-form .pre-req, .post-req {
+    margin-bottom: 0 !important;
+    margin-top: 0 !important;
+}
+
+.create-discipline-form .pre-req input,
+.create-discipline-form .post-req input {
+    width: 48.8%;
+    padding-block: 4px;
+    margin-bottom: 0 !important;
+}

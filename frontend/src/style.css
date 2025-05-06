@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 code {
@@ -58,4 +59,3 @@ code {
 .ant-layout-sider-collapsed .logo .logo-text {
   display: none !important;
 }
-

@@ -1,0 +1,173 @@
+.planning-wrapper{
+    padding-left: 25px;
+}
+
+.planning {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.period {
+    margin: 20px 0px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #ebebeb;
+    padding: 5px 10px;
+    position: relative;
+}
+
+.plus-icon{
+    padding: 0px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 25px;
+}
+
+.plus-icon-discipline {
+    width: 100%;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-grow: 10;
+    padding: 20px 0px;
+}
+
+.button-show-modal, .button-show-modal:hover {
+    background-color: transparent !important;
+    border: none;
+    color: white !important;
+    cursor: pointer;
+    font-size: 25px;
+}
+
+.plus-icon > span{
+    cursor: pointer;
+}
+
+.plus-icon > span:hover{
+    opacity: 0.8;
+}
+
+.plus-icon-discipline{
+    display: flex;
+    align-self: end;
+}
+
+#button-wrapper{
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    width: 420px !important;
+    justify-content: space-between;
+}
+
+#button-wrapper .planning-button {
+    width: 200px;
+    height: 50px;
+    background-color: #d9643a;
+    border: none;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#button-wrapper .planning-button:hover{
+    background-color: #b45430;
+}
+
+.planning-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.planning-header {
+    position: relative;
+    display: inline-block;
+}
+
+.custom-arrow {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    width: 10px;
+    height: 10px;
+    background: url('https://api.iconify.design/ep/arrow-right.svg?color=white&rotate=90deg') no-repeat center;
+    background-size: contain;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.ant-modal-content {
+    height: 70vh !important;
+    /* padding: unset 150px !important; */
+    /* overflow-y: scroll; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.ant-modal-content, .ant-modal-title {
+    background-color: #343535 !important;
+    border-radius: 0px !important;
+}
+
+.ant-modal-title {
+    font-size: 30px !important;
+    color: white !important;
+    padding: 20px 0px !important;
+}
+
+.ant-modal-close{
+    margin: 20px !important;
+}
+
+
+.ant-modal-close-x{
+    color: white !important;
+}
+
+.ant-modal-footer{
+    display: none !important;
+}
+
+.ant-input-wrapper {
+    margin-bottom: 20px !important;
+    width: 310px;
+}
+
+.ant-input, .ant-input:hover{
+    background-color: #D9D9D9 !important;
+    border-color: #D9D9D9 !important;
+    border-radius: 0px !important;
+    margin: 0px !important;
+}
+
+.ant-input-group-addon button,
+.ant-input-group-addon button:hover{
+    background-color: #D9D9D9 !important;
+    border-radius: 0px !important;
+    border: none !important;
+    color: gray !important;
+}
+
+.select-cards{
+    width: 300px;
+    height: 400px;
+    overflow-y: scroll;
+    color: white !important;
+}
+
+.select-cards .card {
+    margin: 10px 0px !important;
+    width: 280px !important;
+}
+
+.planning .period {
+    min-height: 700px;
+}
+

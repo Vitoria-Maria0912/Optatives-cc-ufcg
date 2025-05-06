@@ -1,0 +1,27 @@
+.card {
+    width: 200px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #d9643a;
+    cursor: pointer;
+    position: relative;
+}
+
+.card .title {
+    font-size: 14px;
+    font-weight: bolder;
+}
+
+.card:hover {
+    background-color: #b45430;
+}
+
+.anticon-delete {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: bold;
+}
+

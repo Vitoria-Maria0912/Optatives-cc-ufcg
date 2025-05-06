@@ -2,7 +2,7 @@ import React from 'react';
 
 const toPascalCase = (str) => str.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1));
 
-const ShowOneDiscipline =  ({selectedDiscipline}) => {
+const ShowOneDisciplineForm =  ({selectedDiscipline}) => {
     return (    
         <div style={{ border: '1px solid #ddd', padding: '1rem', marginTop: '1rem', borderRadius: '8px' }}>
             <h2>Discipline Details</h2>
@@ -38,5 +38,5 @@ const ShowOneDiscipline =  ({selectedDiscipline}) => {
         </div>
 )}
 
-export default ShowOneDiscipline;
+export default ShowOneDisciplineForm;
 export { toPascalCase };
