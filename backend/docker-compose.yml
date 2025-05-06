@@ -1,31 +1,33 @@
-services:
-  db:
-    image: postgres
-    container_name: optatives_cc_ufcg
-    restart: always
-    volumes:
-      - pgdata:/var/lib/postgresql/data
-    environment:
-      POSTGRES_PASSWORD: cc_ufcg123
-    ports:
-      - 5432:5432
-    logging:
-      driver: json-file
-      options:
-        max-size: 100m
-  pgadmin:
-    image: dpage/pgadmin4
-    container_name: pgadmin4
-    restart: always
-    environment:
-      PGADMIN_DEFAULT_EMAIL: vitoria.nascimento@ccc.ufcg.edu.br
-      PGADMIN_DEFAULT_PASSWORD: admin
-    ports:
-      - 80:80
-    depends_on:
-      - db
-    volumes:
-      - pgadmin_data:/var/lib/pgadmin
-volumes:
-  pgdata:
-  pgadmin_data:
+  services:
+    db:
+      image: postgres
+      container_name: optatives_cc_ufcg
+      restart: always
+      volumes:
+        - pgdata:/var/lib/postgresql/data
+      environment:
+        POSTGRES_PASSWORD: cc_ufcg123
+      ports:
+        - 5432:5432
+      logging:
+        driver: json-file
+        options:
+          max-size: 100m
+    
+    db_tests:
+      image: postgres
+      container_name: optatives_cc_ufcg_tests
+      volumes:
+        - pg_test_data:/var/lib/postgresql/data
+      environment:
+        POSTGRES_PASSWORD: cc_ufcg123
+      ports:
+        - 5433:5432
+      logging:
+        driver: json-file
+        options:
+          max-size: 100m
+
+  volumes:
+    pgdata:
+    pg_test_data:
