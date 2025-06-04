@@ -1,4 +1,4 @@
-.planning-wrapper{
+.planning-wrapper {
     padding-left: 25px;
 }
 
@@ -19,7 +19,7 @@
     position: relative;
 }
 
-.plus-icon{
+.plus-icon {
     padding: 0px 20px;
     display: flex;
     justify-content: center;
@@ -35,7 +35,8 @@
     padding: 20px 0px;
 }
 
-.button-show-modal, .button-show-modal:hover {
+.button-show-modal,
+.button-show-modal:hover {
     background-color: transparent !important;
     border: none;
     color: white !important;
@@ -43,20 +44,20 @@
     font-size: 25px;
 }
 
-.plus-icon > span{
+.plus-icon>span {
     cursor: pointer;
 }
 
-.plus-icon > span:hover{
+.plus-icon>span:hover {
     opacity: 0.8;
 }
 
-.plus-icon-discipline{
+.plus-icon-discipline {
     display: flex;
     align-self: end;
 }
 
-#button-wrapper{
+#button-wrapper {
     margin-top: 20px;
     display: flex;
     flex-direction: row;
@@ -67,14 +68,14 @@
 #button-wrapper .planning-button {
     width: 200px;
     height: 50px;
-    background-color: #d9643a;
+    background-color: #ff0000;
     border: none;
     color: white;
     cursor: pointer;
     font-weight: bold;
 }
 
-#button-wrapper .planning-button:hover{
+#button-wrapper .planning-button:hover {
     background-color: #b45430;
 }
 
@@ -111,7 +112,8 @@
     align-items: center;
 }
 
-.ant-modal-content, .ant-modal-title {
+.ant-modal-content,
+.ant-modal-title {
     background-color: #343535 !important;
     border-radius: 0px !important;
 }
@@ -122,16 +124,16 @@
     padding: 20px 0px !important;
 }
 
-.ant-modal-close{
+.ant-modal-close {
     margin: 20px !important;
 }
 
 
-.ant-modal-close-x{
+.ant-modal-close-x {
     color: white !important;
 }
 
-.ant-modal-footer{
+.ant-modal-footer {
     display: none !important;
 }
 
@@ -140,7 +142,8 @@
     width: 310px;
 }
 
-.ant-input, .ant-input:hover{
+.ant-input,
+.ant-input:hover {
     background-color: #D9D9D9 !important;
     border-color: #D9D9D9 !important;
     border-radius: 0px !important;
@@ -148,14 +151,14 @@
 }
 
 .ant-input-group-addon button,
-.ant-input-group-addon button:hover{
+.ant-input-group-addon button:hover {
     background-color: #D9D9D9 !important;
     border-radius: 0px !important;
     border: none !important;
     color: gray !important;
 }
 
-.select-cards{
+.select-cards {
     width: 300px;
     height: 400px;
     overflow-y: scroll;
@@ -171,3 +174,8 @@
     min-height: 700px;
 }
 
+.delete-last-period {
+    position: relative;
+    top: -30px;
+    right: -50px;
+}

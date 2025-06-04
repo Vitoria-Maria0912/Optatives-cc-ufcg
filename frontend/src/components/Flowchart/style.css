@@ -2,29 +2,23 @@
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
-    overflow-x: scroll;
-    overflow-y: hidden;
+    justify-content: center;
+    /* overflow-x: scroll;
+    overflow-y: hidden; */
 }
 
 .flowchart .period {
-    width: 195px;
-    margin: 20px 0px;
-    margin-right: 10px;
-    display: inline-block;
-    border: 1px solid #ebebeb;
-    padding: 5px;
-}
-
-.flowchart .card {
-    width: 175px;
-    height: 90px;
     display: flex;
+    width: 160px;
+    margin-right: 6px;
     justify-content: center;
     align-items: center;
-    background-color: #d9643a;
-    cursor: pointer;
+
+    display: inline-block;
+    border: 1px solid #ebebeb;
+    padding: 0 5px 0 5px;
 }
 
 .flowchart .card .title {
-    font-size: 20px !important;
+    font-size: 19px !important;
 }

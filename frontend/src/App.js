@@ -1,14 +1,12 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { HomeOutlined, UserOutlined, BookOutlined, UsbOutlined, BulbOutlined, LinkOutlined } from '@ant-design/icons';
 import { Menu, Layout } from 'antd';
 import { Route, Routes, useNavigate } from "react-router-dom";
 import { Home, About } from './components/Layout/CenterMain.js'
 import './style.css';
-// import UserService from './services/UserService.js';
 import DisciplineService from './services/DisciplineService.js';
 import PlanningService from './services/PlanningService.js';
 import LoginService from './services/LoginService.js';
-import Planning from './components/Planning/index.js';
 import UserService from './services/UserService.js';
 import { NotificationProvider } from './components/Alert/index.js';
 

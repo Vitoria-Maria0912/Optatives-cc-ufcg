@@ -1,4 +1,3 @@
-import React from "react";
 import Flowchart from "../Flowchart";
 import { Breadcrumb } from "antd";
 import "./style.css"
