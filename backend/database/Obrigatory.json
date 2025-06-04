@@ -119,7 +119,7 @@
       "acronym": "EDA",
       "name": "Estruturas de Dados e Algoritmos",
       "pre_requisites": ["Programação II", "Laboratório de Programação II"],
-      "post_requisites": ["Banco de Dados", "Projeto de Software", "Análise e Técnicas de Algoritmos"]
+      "post_requisites": ["Banco de Dados I", "Projeto de Software", "Análise e Técnicas de Algoritmos"]
     },
     {
       "id": 13,

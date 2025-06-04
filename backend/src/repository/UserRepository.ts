@@ -12,7 +12,7 @@ export interface UserRepositoryInterface {
     getUserByRole(userRole: Role): Promise<User[]>;
     getTokenByUserEmail(userEmail: string): Promise<Login>;
     patchUser(idUser: number, updates: Partial<Omit<User, 'id'>>): Promise<void>;
-    deleteOneUser(userId: number): Promise<void>;
+    deleteOneUser(userEmail: string): Promise<void>;
     deleteAllUsers() : Promise<void>;
     getAmountOfUsers(): Promise<number>;
 }
@@ -81,8 +81,9 @@ export class UserRepository implements UserRepositoryInterface {
         await prismaClient.user.update({ where: { id: idUser }, data: userUpdates });
     }
 
-    async deleteOneUser(idUser: number): Promise<void> {
-        await prismaClient.user.delete({ where: { id: idUser } });
+    async deleteOneUser(userEmail: string): Promise<void> {
+        await prismaClient.user.delete({ where: { email: userEmail } });
+        await prismaClient.login.delete({ where: { email: userEmail } });
     }
 
     async deleteAllUsers(): Promise<void> { await prismaClient.user.deleteMany(); }

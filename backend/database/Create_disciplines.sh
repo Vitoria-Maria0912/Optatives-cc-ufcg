@@ -1,32 +1,29 @@
 #!/bin/bash
 
+# Deleta usuário
+curl -X DELETE http://localhost:8080/users/0 
+
 # Cria usuário
 curl -X POST http://localhost:8080/users \
   -H "Content-Type: application/json" \
   -d '{
+    "id": 0,
     "name": "Vitória Maria",
     "email": "vitoria.nascimento@ccc.ufcg.edu.br",
     "password": "@ccc.ufcg.edu.br",
     "role": "ADMINISTRATOR"
   }'
 
-# Loga usuário 
-curl -X POST http://localhost:8080/auth/login \
+RESPONSE=$(curl -s -X POST http://localhost:8080/auth/login \
   -H "Content-Type: application/json" \
-  -d '{
-    "email": "vitoria.nascimento@ccc.ufcg.edu.br",
-    "password": "@ccc.ufcg.edu.br"
-  }'
+  -d '{ 
+        "email":"vitoria.nascimento@ccc.ufcg.edu.br",
+        "password":"@ccc.ufcg.edu.br"
+      }')
 
-# Captura do token
-TOKEN=$(curl -s -X POST http://localhost:8080/login/getTokenByEmail \
-  -H "Content-Type: application/json" \
-  -d '{
-    "email": "vitoria.nascimento@ccc.ufcg.edu.br",
-    "password": "@ccc.ufcg.edu.br"
-  }' | jq -r '.token')
+echo "Resposta da API de login: $RESPONSE"
 
-echo "Token: $TOKEN"
+TOKEN=$(echo "$RESPONSE" | jq -r '.token')
 
 # Verifica se o token foi realmente capturado
 if [ -z "$TOKEN" ] || [ "$TOKEN" == "null" ]; then
@@ -46,7 +43,7 @@ if ! command -v jq &> /dev/null; then
 fi
 
 # Loop para enviar disciplinas
-jq -c 'reverse | .[]' "$JSON_FILE_OBRIGATORY" | while read -r disciplina; do
+jq -c '.[]' "$JSON_FILE_OBRIGATORY" | while read -r disciplina; do
   echo "Enviando: $disciplina"
   curl -X POST "$URL" \
     -H "Authorization: Bearer $TOKEN" \
@@ -56,7 +53,7 @@ jq -c 'reverse | .[]' "$JSON_FILE_OBRIGATORY" | while read -r disciplina; do
 done
 
 # Loop para enviar disciplinas
-jq -c 'reverse | .[]' "$JSON_FILE_OPTATIVE" | while read -r disciplina; do
+jq -c '.[]' "$JSON_FILE_OPTATIVE" | while read -r disciplina; do
   echo "Enviando: $disciplina"
   curl -X POST "$URL" \
     -H "Authorization: Bearer $TOKEN" \

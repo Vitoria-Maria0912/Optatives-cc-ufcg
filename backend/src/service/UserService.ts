@@ -95,7 +95,8 @@ export class UserService implements UserServiceInterface {
         if ((await this.getAmountOfUsers()) === 0) { throw new NotFoundError('No users found!'); }
         if (isNaN( userId )) { throw new InvalidCredentialsError("User ID must be a number!"); }
 
-        try { await this.userRepository.deleteOneUser(userId); }
+        try { const user = await this.getUserById(userId);
+              await this.userRepository.deleteOneUser(user.email); }
         catch (error : any) { throw new NotFoundError(`User with ID '${ userId }' not found!`); }         
     }
 
