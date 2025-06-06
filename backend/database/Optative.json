@@ -5,8 +5,7 @@
       "acronym": "ASGBD",
       "type": "OPTATIVE",
       "available": false,
-      "description": "Disciplina sobre gerenciamento e administração de bancos de dados avançados.",
-      "pre_requisites": ["Banco de Dados I"]
+      "description": "Disciplina sobre gerenciamento e administração de bancos de dados avançados."
     },
     {
       "id": 37,
@@ -15,7 +14,6 @@
       "type": "OPTATIVE",
       "available": false,
       "description": "Disciplina sobre administração e configuração de sistemas computacionais.",
-      "pre_requisites": ["Redes de Computadores", "Sistemas Operacionais"],
       "teacher": "Giovanni"
     },
     {
@@ -25,47 +23,42 @@
       "type": "OPTATIVE",
       "available": false,
       "description": "Disciplina introdutória aos algoritmos avançados, com foco em otimização e eficiência.",
-      "pre_requisites": ["Programação I", "Laboratório de Programação I"],
       "teacher": "Rohit"
     },
     {
         "id": 39,
-        "acronym": "AAII",
+        "acronym": "AA2",
         "name": "Algoritmos Avançados II",
         "type": "OPTATIVE",
         "available": false,
         "description": "Continuação do estudo de algoritmos avançados, explorando algoritmos de busca e ordenação.",
-        "pre_requisites": ["Programação I", "Laboratório de Programação I"],
         "teacher": "Rohit"
     },
     {
         "id": 40,
         "name": "Algoritmos Avançados III",
-        "acronym": "AAIII",
+        "acronym": "AA3",
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina focada em algoritmos complexos e técnicas de análise de algoritmos.",
-        "pre_requisites": ["Programação I", "Laboratório de Programação I"],
         "teacher": "Rohit"
     },
     {
         "id": 41,
-        "acronym": "AAIV",
+        "acronym": "AA4",
         "name": "Algoritmos Avançados IV",
         "type": "OPTATIVE",
         "available": false,
         "description": "Exploração de algoritmos avançados de ordenação e estrutura de dados.",
-        "pre_requisites": ["Programação I", "Laboratório de Programação I"],
         "teacher": "Rohit"
     },
     {
         "id": 42,
         "name": "Arquitetura de Software",
-        "acronym": "Arquitetura de Software",
+        "acronym": "ArqSoft",
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina sobre design e arquitetura de sistemas de software complexos.",
-        "pre_requisites": ["Projeto de Software"],
         "teacher": "João Arthur"
     },
     {
@@ -74,8 +67,7 @@
         "name": "Avaliação de Desempenho de Sistemas Discretos",
         "type": "OPTATIVE",
         "available": false,
-        "description": "Disciplina sobre métodos de avaliação de desempenho em sistemas discretos.",
-        "pre_requisites": ["Introdução à Probabilidade"]
+        "description": "Disciplina sobre métodos de avaliação de desempenho em sistemas discretos."
     },
     {
         "id": 44,
@@ -83,95 +75,30 @@
         "name": "Banco de Dados II",
         "type": "OPTATIVE",
         "available": false,
-        "description": "Disciplina avançada sobre conceitos e técnicas de bancos de dados.",
-        "pre_requisites": ["Banco de Dados I"]
+        "description": "Disciplina avançada sobre conceitos e técnicas de bancos de dados."
     },
     {
         "id": 37,
         "name": "Computação e Música",
-        "acronym": "COMPUTAÇÃO E MÚSICA",
+        "acronym": "CompMus",
         "type": "OPTATIVE",
         "available": false,
         "description": "Aplicação de conceitos de computação em música.",
-        "pre_requisites": ["Estruturas de Dados e Algoritmos"],
         "teacher": "Marcelo Barros"
     },
     {
         "id": 38,
         "name": "Computação Gráfica",
-        "acronym": "COMPUTAÇÃO GRÁFICA",
+        "acronym": "CompGraf",
         "type": "OPTATIVE",
         "available": false,
-        "description": "Disciplina sobre técnicas de computação gráfica e sua aplicação.",
-        "pre_requisites": [
-            "Cálculo Diferencial e Integral I",
-            "Álgebra Linear",
-            "Estruturas de Dados e Algoritmos"
-        ]
+        "description": "Disciplina sobre técnicas de computação gráfica e sua aplicação."
     },
-    {
-        "id": 39,
-        "name": "Algoritmos Avançados II",
-        "acronym": "AAII",
-        "type": "OPTATIVE",
-        "available": false,
-        "description": "Continuação do estudo de algoritmos avançados, explorando algoritmos de busca e ordenação.",
-        "pre_requisites": ["Programação I", "Laboratório de Programação I"],
-        "teacher": "Rohit"
-    },
-    {
-        "id": 40,
-        "name": "Algoritmos Avançados III",
-        "acronym": "AAIII",
-        "type": "OPTATIVE",
-        "available": false,
-        "description": "Disciplina focada em algoritmos complexos e técnicas de análise de algoritmos.",
-        "pre_requisites": ["Programação I", "Laboratório de Programação I"],
-        "teacher": "Rohit"
-    },
-    {
-        "id": 41,
-        "name": "Algoritmos Avançados IV",
-        "acronym": "AAIV",
-        "type": "OPTATIVE",
-        "available": false,
-        "description": "Exploração de algoritmos avançados de ordenação e estrutura de dados.",
-        "pre_requisites": ["Programação I", "Laboratório de Programação I"],
-        "teacher": "Rohit"
-    },
-    {
-        "id": 42,
-        "name": "Arquitetura de Software",
-        "acronym": "ARQUITETURA DE SOFTWARE",
-        "type": "OPTATIVE",
-        "available": false,
-        "description": "Disciplina sobre design e arquitetura de sistemas de software complexos.",
-        "pre_requisites": ["Projeto de Software"],
-        "teacher": "João Arthur"
-    },
-    {
-        "id": 43,
-        "name": "Avaliação de Desempenho de Sistemas Discretos",
-        "acronym": "AVALIAÇÃO DE DESEMPENHO DE SISTEMAS DISCRETOS",
-        "type": "OPTATIVE",
-        "available": false,
-        "description": "Disciplina sobre métodos de avaliação de desempenho em sistemas discretos.",
-        "pre_requisites": ["Introdução à Probabilidade"]
-    },
-    {
-        "id": 44,
-        "name": "Banco de Dados II",
-        "acronym": "BD2",
-        "type": "OPTATIVE",
-        "available": false,
-        "description": "Disciplina avançada sobre conceitos e técnicas de bancos de dados.",
-        "pre_requisites": ["Banco de Dados I"],
-        "teacher": "Carlos Eduardo Pires"
-    },
+   
     {
         "id": 45,
-        "name": "Aprendizagem de Máquina",
-        "acronym": "AprMaq",
+        "name": "Machine Learning",
+        "acronym": "ML",
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina sobre algoritmos e técnicas de aprendizado de máquina.",
@@ -179,94 +106,64 @@
     },
     {
         "id": 46,
-        "acronym": "LLM",
         "name": "Large Language Models",
+        "acronym": "LLM",
         "type": "OPTATIVE",
         "available": false,
         "description": "Estudo de técnicas de processamento de linguagem natural com modelos de linguagem de grande escala.",
-        "pre_requisites": ["Processamento de Linguagem Natural"],
         "teacher": "Leandro Balby"
     },
     {
         "id": 47,
-        "name": "Computação e Música",
-        "acronym": "Computação e Música",
-        "type": "OPTATIVE",
-        "available": false,
-        "description": "Aplicação de conceitos de computação em música.",
-        "pre_requisites": ["Estruturas de Dados e Algoritmos"],
-        "teacher": "Marcelo Barros"
-    },
-    {
-        "id": 48,
-        "name": "Computação Gráfica",
-        "acronym": "CG",
-        "type": "OPTATIVE",
-        "available": false,
-        "description": "Disciplina sobre técnicas de computação gráfica e sua aplicação.",
-        "pre_requisites": [
-            "Cálculo Diferencial e Integral I",
-            "Álgebra Linear",
-            "Estruturas de Dados e Algoritmos"
-        ]
-    },
-    {
-        "id": 49,
         "name": "Desenvolvimento de Software Integrado à Operação da Infraestrutura",
         "acronym": "DesPoi",
         "type": "OPTATIVE",
         "available": false,
-        "description": "Disciplina sobre integração de software e operação de infraestrutura.",
-        "pre_requisites": ["Banco de Dados I", "Projeto de Software"]
+        "description": "Disciplina sobre integração de software e operação de infraestrutura."
+    },
+    {
+        "id": 48,
+        "name": "Economia de Tecnologia da Informação",
+        "acronym": "EconTI",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina sobre a economia relacionada à tecnologia da informação."
+    },
+    {
+        "id": 49,
+        "name": "Empreendedorismo e Inovação",
+        "acronym": "Empreendedorismo",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina sobre habilidades de empreendedorismo e inovação tecnológica."
     },
     {
         "id": 50,
-        "name": "Economia de Tecnologia da Informação",
-        "acronym": "Economia de Tecnologia da Informação",
-        "type": "OPTATIVE",
-        "available": false,
-        "description": "Disciplina sobre a economia relacionada à tecnologia da informação.",
-        "pre_requisites": ["Introdução à Probabilidade"]
-    },
-    {
-        "id": 51,
-        "acronym": "Empreendedorismo",
-        "name": "Empreendedorismo e Inovação",
-        "type": "OPTATIVE",
-        "available": false,
-        "description": "Disciplina sobre habilidades de empreendedorismo e inovação tecnológica.",
-        "pre_requisites": ["Engenharia de Software"]
-    },
-    {
-        "id": 52,
         "name": "Gerência de Redes",
         "acronym": "Gerência de Redes",
         "type": "OPTATIVE",
         "available": false,
-        "description": "Disciplina sobre gerência e manutenção de redes de computadores.",
-        "pre_requisites": ["Redes de Computadores"]
+        "description": "Disciplina sobre gerência e manutenção de redes de computadores."
     },
     {
-        "id": 53,
+        "id": 51,
         "name": "Gestão de Projetos",
         "acronym": "Gestão de Projetos",
         "type": "OPTATIVE",
         "available": false,
-        "description": "Disciplina sobre técnicas e práticas de gestão de projetos.",
-        "pre_requisites": ["Engenharia de Software"]
+        "description": "Disciplina sobre técnicas e práticas de gestão de projetos."
     },
     {
-        "id": 54,
+        "id": 52,
         "name": "Governaça da Internet",
         "acronym": "Governaça",
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina que estuda os modelos e regulamentações de governança da internet.",
-        "pre_requisites": ["Redes de Computadores"],
         "teacher": "Francilene Procópio"
     },
     {
-        "id": 55,
+        "id": 53,
         "name": "Habilidades Socioemocionais I",
         "acronym": "HS1",
         "type": "OPTATIVE",
@@ -274,16 +171,15 @@
         "description": "Disciplina sobre desenvolvimento de habilidades socioemocionais."
     },
     {
-        "id": 56,
+        "id": 54,
         "name": "Habilidades Socioemocionais II",
         "acronym": "HS2",
         "type": "OPTATIVE",
         "available": false,
-        "description": "Continuação do desenvolvimento de habilidades socioemocionais.",
-        "pre_requisites": ["Habilidades Socioemocionais I"]
+        "description": "Continuação do desenvolvimento de habilidades socioemocionais."
     },
     {
-        "id": 57,
+        "id": 55,
         "name": "Informática e Sociedade",
         "acronym": "InfoSoc",
         "type": "OPTATIVE",
@@ -291,12 +187,250 @@
         "description": "Disciplina sobre o impacto da informática na sociedade e suas implicações éticas."
     },
     {
-        "id": 58,
+        "id": 56,
         "name": "Inglês",
         "acronym": "Inglês",
         "type": "OPTATIVE",
         "available": true,
         "description": "Disciplina que aborda a língua inglesa e suas aplicações."
-  }
+    },
+    {
+        "id": 57,
+        "name": "Interconexão de Redes de Computadores",
+        "acronym": "IRC",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina que estuda a interconexão de redes de computadores",
+        "post_requisites": ["Projeto de Redes de Computadores"]
+    },
+    {
+        "id": 58,
+        "name": "Interface Humano-Computador",
+        "acronym": "IHC",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina que estuda a interface entre o homem e o computador.",
+        "teacher": "Tiago Massoni"
+    },
+    {
+        "id": 59,
+        "name": "Jogos Digitais",
+        "acronym": "Jogos",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina que estuda os jogos digitais, desde a sua história até a sua programação.",
+        "teacher": "Marcelo Barros"
+    },
+    {
+        "id": 60,
+        "name": "Visualização de Dados",
+        "acronym": "VDD",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina sobre métodos e ferramentas de visualização de dados.",
+        "teacher": "Maxwell Guimarães"
+    },
+    {
+        "id": 61,
+        "name": "Libras",
+        "acronym": "Libras",
+        "type": "OPTATIVE",
+        "available": true,
+        "description": "Disciplina que estuda a língua brasileira de sinais."
+    },
+    {
+        "id": 62,
+        "name": "Métodos de Software Numéricos",
+        "acronym": "MSN",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina que estuda os métodos de software numéricos."
+    },
+    {
+        "id": 63,
+        "name": "Métodos Formais",
+        "acronym": "MF",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina que estuda os métodos formais de programação."
+    },
+    {
+        "id": 64,
+        "name": "Otimização",
+        "acronym": "Otimização",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina que estuda a otimização de problemas computacionais."
+    },
+    {
+        "id": 65,
+        "name": "Deep Learning",
+        "acronym": "DL",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina que estuda o deep learning.",
+        "teacher": "Herman"
+    },
+    {
+        "id": 66,
+        "name": "Percepção Computacional",
+        "acronym": "PC",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina que estuda a percepção computacional.",
+        "teacher": "Herman"
+    },
+    {
+        "id": 67,
+        "name": "Prática de Ensino de Computação I",
+        "acronym": "Prática I",
+        "type": "OPTATIVE",
+        "available": true,
+        "description": "Disciplina que visa a prática de ensino de computação."
+    },
+    {
+        "id": 68,
+        "name": "Prática de Ensino de Computação II",
+        "acronym": "Prática II",
+        "type": "OPTATIVE",
+        "available": true,
+        "description": "Disciplina que visa a prática de ensino de computação."
+    },
+    {
+        "id": 69,
+        "name": "Processamento de Linguagem Natural",
+        "acronym": "PLN",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina que estuda o processamento de linguagem natural.",
+        "teacher": "Leandro Balby | Salatiel"
+    },
+    {
+        "id": 70,
+        "name": "Programação em Banco de Dados",
+        "acronym": "ProgBD",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina que estuda a programação em banco de dados.",
+        "teacher": "Carlos Eduardo Pires"
+    },
+    {
+        "id": 71,
+        "name": "Programação Funcional",
+        "acronym": "Funcional",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina que estuda a programação funcional.",
+        "teacher": "Adalberto Cajueiro"
+    },
+    {
+        "id": 72,
+        "name": "Programação para Web I",
+        "acronym": "ProgWeb I",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina que estuda a programação para web.",
+        "teacher": "Dalton | Demétrio Mestre"
+    },
+    {
+        "id": 73,
+        "name": "Programação para Web II",
+        "acronym": "ProgWeb II",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina que estuda a programação para web.",
+        "teacher": "Gaudêncio | Reinaldo | Glauber"
+    },
+    {
+        "id": 74,
+        "name": "Projeto de Redes de Computadores",
+        "acronym": "ProjRedes",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina que estuda o projeto de redes de computadores."
+    },
+    {
+        "id": 75,
+        "name": "Projeto de Sistemas Digitais",
+        "acronym": "ProjSistemas",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina que estuda o projeto de sistemas digitais."
+    },
+        {
+        "id": 76,
+        "name": "Provisionamento e Operações de Infraestrutura",
+        "acronym": "POI",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina que aborda os aspectos de provisionamento e manutenção de infraestrutura de TI."
+    },
+    {
+        "id": 77,
+        "name": "Reconhecimento de Padrões e Redes Neurais",
+        "acronym": "Redes Neurais",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina sobre técnicas de reconhecimento de padrões e aprendizado em redes neurais."
+    },
+    {
+        "id": 78,
+        "name": "Recuperação de Informação e Busca na Web",
+        "acronym": "RI",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina sobre técnicas de recuperação de informações e mecanismos de busca na web."
+    },
+    {
+        "id": 79,
+        "name": "Segurança de Sistemas",
+        "acronym": "Segurança",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina sobre práticas e técnicas de segurança em sistemas de informação."
+    },
+    {
+        "id": 80,
+        "name": "Sistemas de Apoio à Decisão",
+        "acronym": "SAD",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina sobre desenvolvimento de sistemas para suporte à tomada de decisão.",
+        "teacher": "Cláudio Baptista"
+    },
+    {
+        "id": 81,
+        "name": "Sistemas de Informações Geográficas",
+        "acronym": "SisGeo",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina sobre técnicas e ferramentas para sistemas de informações geográficas."
+    },
+    {
+        "id": 82,
+        "name": "Sistemas Distribuídos",
+        "acronym": "SD",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina sobre princípios e práticas de sistemas distribuídos.",
+        "teacher": "Andrey Elísio"
+    },
+    {
+        "id": 83,
+        "name": "Transformação Digital",
+        "acronym": "TD",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina sobre o impacto da transformação digital nos negócios e na sociedade."
+    },
+    {
+        "id": 84,
+        "name": "Verificação e Validação de Software",
+        "acronym": "VeV",
+        "type": "OPTATIVE",
+        "available": false,
+        "description": "Disciplina sobre técnicas de verificação e validação de software para assegurar a qualidade.",
+        "teacher": "Everton Galdino"
+    }
 ]
   

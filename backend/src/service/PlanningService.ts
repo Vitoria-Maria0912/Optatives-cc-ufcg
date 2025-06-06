@@ -1,10 +1,9 @@
 import { PlanningDTO } from "../dtos/PlanningDTO";
 import { PeriodDTO } from "../dtos/PeriodDTO";
-import { Planning, PlanningInterface } from "../model/Planning";
-import { Period, PeriodInterface } from "../model/Period";
 import { PlanningRepository, PlanningRepositoryInterface } from "../repository/PlanningRespository";
 import { PeriodRepository, PeriodRepositoryInterface } from "../repository/PeriodRepository";
 import { UserRepository, UserRepositoryInterface } from "../repository/UserRepository";
+import { NotFoundError } from "../errorHandler/ErrorHandler";
 
 class HttpError extends Error {
     public statusCode: number;
@@ -26,7 +25,7 @@ export interface PlanningServiceInterface {
 export class PlanningService implements PlanningServiceInterface {
     private planningRepository: PlanningRepositoryInterface = new PlanningRepository();
     private periodRepository: PeriodRepositoryInterface = new PeriodRepository();
-    private userRepository: UserRepositoryInterface = new UserRepository();
+    private userRepository: UserRepository = new UserRepository();
 
     async createPlanning(planningData: any): Promise<PlanningDTO> {
         try {
@@ -50,9 +49,9 @@ export class PlanningService implements PlanningServiceInterface {
             }
             
             if (!planningData.userId) {
-                const user = await this.userRepository.getUserByEmail(planningData["userEmail"]);
-                if (!user || !user.id) {
-                    throw new HttpError("Usuário não encontrado para o email fornecido.", 404);
+                const user = await this.userRepository.getUserByEmail(planningData.userEmail);
+                if (!user) {
+                    throw new NotFoundError(`User not found with email ${ planningData.userEmail }`);
                 }
                 planningData.userId = user.id;
                 delete planningData.userEmail;

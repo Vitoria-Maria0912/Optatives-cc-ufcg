@@ -48,7 +48,7 @@
 }
 
 .get-all-disciplines #patch-discipline {
-    position: fixed;
+    position: absolute;
     margin: 0 0 0 71%;
     margin-top: -2%;
     width: 2px;

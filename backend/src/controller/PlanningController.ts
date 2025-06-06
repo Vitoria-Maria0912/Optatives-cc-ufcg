@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import { DisciplineService, DisciplineServiceInterface } from '../service/DisciplineService';
 import { PlanningService, PlanningServiceInterface } from '../service/PlanningService';
 
 interface AuthenticatedRequest extends Request {

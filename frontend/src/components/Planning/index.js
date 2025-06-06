@@ -29,7 +29,7 @@ const Planning = () => {
 
     const updateSelect = (plannings) => {
         const items = [...plannings]
-            .sort((a, b) => a.id - b.id) // <-- Ordena só por garantia
+            .sort((a, b) => a.id - b.id) 
             .map((planning, index) => ({
                 key: planning.id,
                 name: `Planejamento ${index + 1}`,
@@ -53,7 +53,6 @@ const Planning = () => {
         setSelect(items);
     };
 
-
     useEffect(() => {
         if (hasFetched.current) return;
         hasFetched.current = true;
@@ -61,12 +60,10 @@ const Planning = () => {
             try {
                 const planningResponse = await getDefaultPlanning();
                 const disciplineResponse = await getAllDisciplinesRoute();
-
                 const allPlannings = planningResponse.data.planning;
                 const allDisciplines = disciplineResponse.data.disciplines;
 
                 setDisciplines(allDisciplines);
-                console.log(allPlannings)
 
                 if (allPlannings.length > 0) {
                     const renamedPlannings = allPlannings
@@ -76,10 +73,9 @@ const Planning = () => {
                         }))
                         .sort((a, b) => a.id - b.id);
 
-
                     setPlannings(renamedPlannings);
 
-                    setCurrentPlanning({
+        setCurrentPlanning({
                         ...renamedPlannings[0],
                         periods: [...renamedPlannings[0].periods].sort((a, b) => Number(a.name) - Number(b.name)),
                     });
@@ -109,7 +105,6 @@ const Planning = () => {
                         name: `Planejamento 1`,
                         periods: buildInitialPeriods(),
                     };
-
 
                     try {
                         const response = await createPlanning(newPlanning);
@@ -207,7 +202,6 @@ const Planning = () => {
     };
 
     const handleAddPeriod = () => {
-        console.log(disciplines)
         const maxId = currentPlanning.periods.reduce((max, p) => Math.max(max, p.id), 0);
         const newPeriod = {
             id: maxId + 1,
@@ -381,6 +375,7 @@ const Planning = () => {
                                     </div>
                                 }
                                 {period.disciplines.map((card, index) => (
+
                                     <React.Fragment key={card.id}>
                                         <Card
                                             onHover={() => handleCardHover(card)}
@@ -389,7 +384,7 @@ const Planning = () => {
                                             period={period.id}
                                             canDelete
                                             handleCardDelete={() => handleCardDelete(period.id, card.id)}
-                                        />
+                                            />
                                         <DropZone targetPeriod={period.id} index={index + 1} setCurrentPlanning={setCurrentPlanning} />
                                     </React.Fragment>
                                 ))}
@@ -409,10 +404,8 @@ const Planning = () => {
             </div>
 
             <div id="button-wrapper">
-                <button className="planning-button" onClick={handleEditPlanning}>
-                    Editar
-                </button>
-                <button className="planning-button" onClick={handleCreatePlanning}>Salvar novo</button>
+                <button className="planning-button" onClick={handleEditPlanning}>Salvar</button>
+                <button className="planning-button" onClick={handleCreatePlanning}>Criar novo</button>
             </div>
         </div>
     );

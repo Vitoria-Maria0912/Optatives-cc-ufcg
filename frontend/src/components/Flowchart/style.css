@@ -2,23 +2,27 @@
     display: flex;
     flex-wrap: nowrap;
     width: 100%;
-    justify-content: center;
-    /* overflow-x: scroll;
-    overflow-y: hidden; */
+}
+
+.flowchart .card {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    cursor: pointer;
+    position: relative;
 }
 
 .flowchart .period {
     display: flex;
-    width: 160px;
+    width: 200px;
     margin-right: 6px;
     justify-content: center;
     align-items: center;
-
     display: inline-block;
     border: 1px solid #ebebeb;
     padding: 0 5px 0 5px;
 }
 
 .flowchart .card .title {
-    font-size: 19px !important;
+    font-size: 15px !important;
 }

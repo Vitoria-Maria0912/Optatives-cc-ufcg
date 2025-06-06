@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { deleteDisciplineRoute, getAllDisciplinesRoute, getOneDisciplineByNameRoute } from '../../../../routes/DisciplineRoutes';
+import { useEffect, useState } from 'react';
+import { deleteDisciplineRoute, getAllDisciplinesRoute } from '../../../../routes/DisciplineRoutes';
 import { useNavigate } from 'react-router-dom';
 import { toPascalCase } from './ShowOneDisciplineForm.js'
 import './style.css';

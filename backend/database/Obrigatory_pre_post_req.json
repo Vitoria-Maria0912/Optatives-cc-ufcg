@@ -1,0 +1,196 @@
+[
+    {
+      "id": 1,
+      "post_requisites": [
+        "Cálculo Diferencial e Integral I",
+        "Fundamentos de Matemática para Ciência da Computação II",
+        "Teoria dos Grafos"
+      ]
+    },
+    {
+      "id": 2,
+      "post_requisites": [
+        "Organização e Arquitetura de Computadores",
+        "Redes de Computadores"
+      ]
+    },
+    {
+      "id": 3,
+      "post_requisites": [
+        "Laboratório de Programação II",
+        "Programação II"
+      ]
+    },
+    {
+      "id": 4,
+      "post_requisites": [
+        "Laboratório de Programação II",
+        "Programação II"
+      ]
+    },
+    {
+      "id": 5,
+      "pre_requisites": [ "Fundamentos de Matemática para Ciência Computação I" ],
+      "post_requisites": [ "Cálculo Diferencial e Integral II" ]
+    },
+    {
+      "id": 7,
+      "pre_requisites": [ "Fundamentos de Matemática para Ciência Computação I" ],
+      "post_requisites": [
+        "Álgebra Linear I",
+        "Lógica para Computação"
+      ]
+    },
+    {
+      "id": 8,
+      "pre_requisites": [
+        "Programação I",
+        "Laboratório de Programação I"
+      ],
+      "post_requisites": [
+        "Laboratório de Estruturas de Dados e Algoritmos",
+        "Estruturas de Dados e Algoritmos",
+        "Paradigmas de Linguagem de Programação",
+        "Teoria dos Grafos",
+        "Engenharia de Software"
+      ]
+    },
+    {
+      "id": 9,
+      "pre_requisites": [
+        "Programação I",
+        "Laboratório de Programação I"
+      ],
+      "post_requisites": [
+        "Laboratório de Estruturas de Dados e Algoritmos",
+        "Estruturas de Dados e Algoritmos",
+        "Paradigmas de Linguagem de Programação",
+        "Teoria dos Grafos",
+        "Engenharia de Software"
+      ]
+    },
+    {
+      "id": 10,
+      "pre_requisites": ["Fundamentos de Matemática para Ciência da Computação II"]
+    },
+    {
+      "id": 11,
+      "pre_requisites": ["Cálculo Diferencial e Integral I"],
+      "post_requisites": ["Introdução à Probabilidade"]
+    },
+    {
+      "id": 12,
+      "pre_requisites": ["Programação II", "Laboratório de Programação II"],
+      "post_requisites": ["Banco de Dados I", "Projeto de Software", "Análise e Técnicas de Algoritmos"]
+    },
+    {
+      "id": 13,
+      "pre_requisites": ["Programação II", "Laboratório de Programação II"],
+      "post_requisites": ["Projeto de Software"]
+    },
+    {
+      "id": 14,
+      "pre_requisites": ["Fundamentos de Matemática para Ciência da Computação II"],
+      "post_requisites": ["Teoria da Computação"]
+    },
+    {
+      "id": 15,
+      "pre_requisites": ["Estrutura de Dados e Algoritmos"],
+      "post_requisites": ["Banco de Dados II", "Projeto de Software", "Engenharia de Software"]
+    },
+    {
+      "id": 16,
+      "pre_requisites": ["Cálculo Diferencial e Integral II"],
+      "post_requisites": ["Estatística Aplicada"]
+    },
+    {
+      "id": 17,
+      "pre_requisites": ["Introdução à Computação"],
+      "post_requisites": ["Sistemas Operacionais"]
+    },
+    {
+      "id": 18,
+      "pre_requisites": ["Programação II", "Laboratório de Programação II"],
+      "post_requisites": ["Compiladores"]
+    },
+    {
+      "id": 19,
+      "pre_requisites": ["Lógica para Computação"],
+      "post_requisites": ["Inteligência Artificial"]
+    },
+    {
+      "id": 23,
+      "pre_requisites": ["Teoria da Computação"]
+    },
+    {
+      "id": 20,
+      "pre_requisites": ["Fundamentos de Matemática para Ciência da Computação I", "Programação II", "Laboratório de Programação II"],
+      "post_requisites": ["Análise e Técnicas de Algoritmos"]
+    },
+    {
+      "id": 21,
+      "pre_requisites": ["Banco de Dados I","Programação II", "Laboratório de Programação II"],
+      "post_requisites": ["Projeto em Computação I"]
+    },
+    {
+      "id": 22,
+      "pre_requisites": ["Introdução à Probabilidade"],
+      "post_requisites": ["Metodologia Científica"]
+    },
+    {
+      "id": 24,
+      "pre_requisites": ["Banco de Dados I", "Estrutura de Dados e Algoritmos", "Laboratório de Estrutura de Dados e Algoritmos"],
+      "post_requisites": ["Análise de Sistemas"]
+    },
+    {
+      "id": 25,
+      "pre_requisites": ["Introdução à Computação"]
+    },
+    {
+      "id": 26,
+      "pre_requisites": ["Organização e Arquitetura de Computadores"],
+      "post_requisites": ["Programação Concorrente"]
+    },
+    {
+      "id": 27,
+      "pre_requisites": ["Projeto de Software"],
+      "post_requisites": ["Projeto em Computação I"]
+    },
+    {
+      "id": 28,
+      "pre_requisites": ["Teoria dos Grafos", "Estruturas de Dados"]
+    },
+    {
+      "id": 29,
+      "pre_requisites": ["Sistemas Operacionais"]
+    },
+    {
+      "id": 30,
+      "pre_requisites": ["Teoria da Computação", "Paradigmas de Linguagens de Programação"]
+    },
+    {
+      "id": 31,
+      "pre_requisites": ["Estatística"],
+      "post_requisites": ["Trabalho de Conclusão de Curso"]
+    },
+    {
+      "id": 33,
+      "pre_requisites": ["Engenharia de Software", "Análise de Sistemas"],
+      "post_requisites": ["Projeto em Computação II"]
+    },
+    {
+      "id": 34,
+      "name": "Projeto em Computação II",
+      "pre_requisites": ["Projeto em Computação I"]
+    },
+    {
+      "id": 35,
+      "name": "Trabalho de Conclusão de Curso",
+      "post_requisites": ["Trabalho de Conclusão de Curso"]
+    },
+    {
+      "id": 32,
+      "name": "Língua Portuguesa",
+      "post_requisites": ["Trabalho de Conclusão de Curso"]
+    }
+] 
