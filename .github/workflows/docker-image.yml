@@ -1,0 +1,23 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "deploy" ]
+  pull_request:
+    branches: [ "deploy" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
+    - name: Create postgres database
+      run: 	docker run -d --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=cc_ufcg123 -e POSTGRES_USER=postgres -e POSTGRES_DB=optatives_cc_ufcg postgres
+    - name: Create postgres database for tests
+      run: 	docker run -d --name postgresql -p 5433:5432 -e POSTGRES_PASSWORD=cc_ufcg123 -e POSTGRES_USER=postgres -e POSTGRES_DB=optatives_cc_ufcg_tests postgres
+          \ set -o allexport; source .env.test; set +o allexport
