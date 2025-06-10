@@ -1,49 +1,15 @@
 [
     {
-      "id": 36,
-      "pre_requisites": ["Banco de Dados I"]
-    },
-    {
-      "id": 38,
-      "pre_requisites": ["Programação I", "Laboratório de Programação I"]
-    },
-    {
-        "id": 39,
-        "pre_requisites": ["Programação I", "Laboratório de Programação I"]
-    },
-    {
-        "id": 40,
-        "pre_requisites": ["Programação I", "Laboratório de Programação I"]
-    },
-    {
-        "id": 41,
-        "pre_requisites": ["Programação I", "Laboratório de Programação I"]
-    },
-    {
-        "id": 42,
-        "pre_requisites": ["Projeto de Software"],
-        "teacher": "João Arthur"
-    },
-    {
-        "id": 43,
-        "pre_requisites": ["Introdução à Probabilidade"]
-    },
-    {
-        "id": 44,
+        "id": 36,
         "pre_requisites": ["Banco de Dados I"]
     },
     {
         "id": 37,
-        "pre_requisites": ["Estruturas de Dados e Algoritmos"],
-        "teacher": "Marcelo Barros"
+        "pre_requisites": ["Redes de Computadores", "Sistemas Operacionais"]
     },
     {
         "id": 38,
-        "pre_requisites": [
-            "Cálculo Diferencial e Integral I",
-            "Álgebra Linear",
-            "Estruturas de Dados e Algoritmos"
-        ]
+        "pre_requisites": ["Programação I", "Laboratório de Programação I"]
     },
     {
         "id": 39,
@@ -70,12 +36,20 @@
         "pre_requisites": ["Banco de Dados I"]
     },
     {
-        "id": 46,
-        "pre_requisites": ["Processamento de Linguagem Natural"]
+        "id": 45,
+        "pre_requisites": ["Estruturas de Dados e Algoritmos"]
     },
     {
-        "id": 47,
-        "pre_requisites": ["Estruturas de Dados e Algoritmos"]
+        "id": 46,
+        "pre_requisites": [
+            "Cálculo Diferencial e Integral I",
+            "Álgebra Linear I",
+            "Estruturas de Dados e Algoritmos"
+        ]
+    },
+    {
+        "id": 48,
+        "pre_requisites": ["Processamento de Linguagem Natural"]
     },
     {
         "id": 49,
@@ -87,7 +61,6 @@
     },
     {
         "id": 51,
-        "acronym": "Empreendedorismo",
         "pre_requisites": ["Engenharia de Software"]
     },
     {
@@ -100,8 +73,7 @@
     },
     {
         "id": 54,
-        "pre_requisites": ["Redes de Computadores"],
-        "teacher": "Francilene Procópio"
+        "pre_requisites": ["Redes de Computadores"]
     },
     {
         "id": 59,
@@ -110,59 +82,63 @@
     },
     {
         "id": 60,
-        "pre_requisites": ["Estruturas de Dados"]
+        "pre_requisites": ["Estruturas de Dados e Algoritmos"]
+    },
+    {
+        "id": 63,
+        "pre_requisites": ["Álgebra Linear I", "Cálculo Diferencial e Integral II"]
+    },
+    {
+        "id": 65,
+        "pre_requisites": ["Álgebra Linear I", "Cálculo Diferencial e Integral II"]
     },
     {
         "id": 66,
-        "pre_requisites": ["Inteligência Artificial"]
-    },
-    {
-        "id": 67,
-        "pre_requisites": ["Inteligência Artificial"]
+        "pre_requisites": ["Álgebra Linear I", "Cálculo Diferencial e Integral II", "Introdução à Probabilidade"]
     },
     {
         "id": 70,
-        "post_requisites": ["Language Language Models"]
+        "pre_requisites": ["Banco de Dados I"]
     },
     {
         "id": 71,
-        "pre_requisites": ["Banco de Dados I"]
+        "pre_requisites": ["Paradigmas de Linguagens de Programação"]
     },
     {
         "id": 72,
-        "teacher": "Adalberto Cajueiro"
+        "pre_requisites": ["Estruturas de Dados e Algoritmos", "Laboratório de Estruturas de Dados e Algoritmos"]
     },
     {
         "id": 73,
-        "post_requisites": ["Programação para Web II"]
-    },
-    {
-        "id": 74,
         "pre_requisites": ["Programação para Web I"]
     },
     {
-        "id": 75,
-        "pre_requisites": ["Interconexão de Redes de Computadores"]
+        "id": 74,
+        "post_requisites": ["Interconexão de Redes de Computadores"]
     },
     {
-        "id": 76,
+        "id": 75,
         "pre_requisites": ["Organização e Arquitetura de Computadores"]
     },
     {
-        "id": 77,
+        "id": 76,
         "pre_requisites": ["Redes de Computadores", "Sistemas Operacionais"]
     },
     {
-        "id": 78,
+        "id": 77,
         "pre_requisites": ["Estatística Aplicada", "Inteligência Artificial"]
     },
     {
-        "id": 79,
+        "id": 78,
         "pre_requisites": ["Banco de Dados I"]
     },
     {
-        "id": 80,
+        "id": 79,
         "pre_requisites": ["Redes de Computadores", "Sistemas Operacionais"]
+    },
+    {
+        "id": 80,
+        "pre_requisites": ["Banco de Dados I"]
     },
     {
         "id": 81,
@@ -170,19 +146,19 @@
     },
     {
         "id": 82,
-        "pre_requisites": ["Banco de Dados I"]
-    },
-    {
-        "id": 83,
         "pre_requisites": ["Redes de Computadores", "Sistemas Operacionais"]
     },
     {
-        "id": 85,
+        "id": 84,
         "pre_requisites": ["Engenharia de Software"]
     },
     {
-        "id": 86,
+        "id": 85,
         "pre_requisites": ["Banco de Dados I", "Estatística Aplicada"]
+    },
+    {
+        "id": 86,
+        "pre_requisites": ["Inteligência Artificial", "Estatística Aplicada"]
     }
 ]
   
