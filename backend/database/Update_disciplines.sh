@@ -18,8 +18,8 @@ if [ -z "$TOKEN" ] || [ "$TOKEN" == "null" ]; then
 fi
 
 # Caminho para JSON e URL da API
-JSON_FILE_OBRIGATORY="Obrigatory_pre_post_req.json"
-JSON_FILE_OPTATIVE="Optative_pre_post_req.json"
+JSON_FILE_OBRIGATORY="./database/Obrigatories_pre_post_req.json"
+JSON_FILE_OPTATIVE="./database/Optatives_pre_post_req.json"
 URL="http://localhost:8080/protected/disciplines"
 
 # Verifica se o jq está instalado
