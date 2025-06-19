@@ -1,11 +1,39 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+:root {
+  --white : #FFFFFF;
+  --black : #000000;
+  --light-gray : #9c9c9c;
+  --dark-gray : #5d5b5b;
+  /* --dark-gray : #333333; */
+  --dark-blue : #06129c;
+  --light-blue : #4084f0;
+  --light-purple : #9d78f5;
+  --font-style : -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+}
+
+body {
+  margin: 0;
+  font-family: --font-style;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+body .light-mode {
+  --bg-color: var(--light-gray);
+  --menu-color: var(--dark-gray);
+  --text-color: var(--white);
+  --input-color: var(--black);
+  --button-color: var(--light-purple);
+}
+
+body .dark-mode {
+  --bg-color: var(--black);
+  --menu-color: var(--dark-blue);
+  --text-color: var(--black);
+  --input-color: var(--white);
+  --button-color: var(--dark-blue);
 }
 
 code {
@@ -14,33 +42,27 @@ code {
 }
 
 .ant-layout-sider, .ant-menu {
-  background-color: #343535;
+  background-color: var(--menu-color) !important;
 }
 
 .ant-menu-sub {
-  background-color: #252626 !important;
+  background-color: var(--menu-color) !important; /* Fix for sub menu */
 }
 
 .ant-menu-item-selected {
-  background-color: #d9643a !important;
+  background-color: var(--button-color) !important;
 }
 
 .ant-layout-sider-trigger {
-  background-color: #d9643a !important;
-}
-
-
-.ant-layout, .ant-layout-header, .ant-layout-footer, .ant-layout-content > div {
-  background-color: #454647 !important;
-  color: #ebebeb !important;
+  background-color: var(--button-color) !important;
 }
 
 .ant-breadcrumb span {
-  color: #ebebeb;
+  color: var(--text-color) !important;
 }
 
 .ant-menu-submenu-selected span, .ant-menu-submenu-selected i{
-  color: #ebebeb !important;
+  color: var(--button-color) !important;
 }
 
 .logo {
@@ -51,7 +73,7 @@ code {
 }
 
 .logo .logo-T{
-  color: #d9643a;
+  color: var(--button-color);
   font-size: 40px;
   font-weight: bolder;
 }
@@ -59,3 +81,24 @@ code {
 .ant-layout-sider-collapsed .logo .logo-text {
   display: none !important;
 }
+
+
+.light-mode #theme-button {
+  position: relative;
+  top: 90px;
+  left: 30%;
+  border: none;
+  border-radius: 10px;
+  padding: 4px 5px;
+  cursor: pointer;
+}
+
+.ant-layout,
+.ant-layout-header,
+.ant-layout-footer,
+.ant-layout-content {
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
+}
+
+

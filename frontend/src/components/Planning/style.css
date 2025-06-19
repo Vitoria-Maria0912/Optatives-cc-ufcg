@@ -14,7 +14,7 @@
     margin-right: 5px;
     display: flex;
     flex-direction: column;
-    border: 1px solid #ebebeb;
+    border: 1px solid var(--text-color);
     padding: 0 5px;
     position: relative;
 }
@@ -25,7 +25,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #d9643a;
+    background-color: var(--button-color);
     cursor: pointer;
     position: relative;
     padding: 0 15px ;
@@ -56,7 +56,7 @@
 .button-show-modal:hover {
     background-color: transparent !important;
     border: none;
-    color: white !important;
+    color: var(--text-color) !important;
     cursor: pointer;
     bottom: 9px;
     font-size: 25px;
@@ -86,9 +86,9 @@
 #button-wrapper .planning-button {
     width: 200px;
     height: 50px;
-    background-color: #d9643a;
+    background-color: var(--button-color);
     border: none;
-    color: white;
+    color: var(--text-color);
     cursor: pointer;
     font-weight: bold;
 }
@@ -114,7 +114,7 @@
     right: 15px;
     width: 10px;
     height: 10px;
-    background: url('https://api.iconify.design/ep/arrow-right.svg?color=white&rotate=90deg') no-repeat center;
+    background: url('https://api.iconify.design/ep/arrow-right.svg?color=var(--text-color)&rotate=90deg') no-repeat center;
     background-size: contain;
     transform: translateY(-50%);
     pointer-events: none;
@@ -122,8 +122,6 @@
 
 .ant-modal-content {
     height: 70vh !important;
-    /* padding: unset 150px !important; */
-    /* overflow-y: scroll; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -138,7 +136,7 @@
 
 .ant-modal-title {
     font-size: 30px !important;
-    color: white !important;
+    color: var(--text-color) !important;
     padding: 20px 0px !important;
 }
 
@@ -148,7 +146,7 @@
 
 
 .ant-modal-close-x {
-    color: white !important;
+    color: var(--text-color) !important;
 }
 
 .ant-modal-footer {
@@ -180,7 +178,7 @@
     width: 300px;
     height: 400px;
     overflow-y: scroll;
-    color: white !important;
+    color: var(--text-color) !important;
 }
 
 .select-cards .card {
