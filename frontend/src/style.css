@@ -2,11 +2,13 @@
   --white : #FFFFFF;
   --black : #000000;
   --light-gray : #9c9c9c;
-  --dark-gray : #5d5b5b;
-  /* --dark-gray : #333333; */
+  --medium-gray : #5d5b5b;
+  --dark-gray : #333333;
   --dark-blue : #06129c;
   --light-blue : #4084f0;
-  --light-purple : #9d78f5;
+  --light-purple : #9f5eea;
+  --dark-purple : #5f3f9f;
+
   --font-style : -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
@@ -14,26 +16,28 @@
 
 body {
   margin: 0;
-  font-family: --font-style;
+  font-family: var(--font-style);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
 
-body .light-mode {
+.light-mode {
   --bg-color: var(--light-gray);
-  --menu-color: var(--dark-gray);
+  --menu-color: var(--medium-gray);
   --text-color: var(--white);
   --input-color: var(--black);
   --button-color: var(--light-purple);
+  --button-hover-color: var(--dark-purple);
 }
 
-body .dark-mode {
+.dark-mode {
   --bg-color: var(--black);
-  --menu-color: var(--dark-blue);
-  --text-color: var(--black);
-  --input-color: var(--white);
+  --menu-color: var(--dark-gray);
+  --text-color: var(--white);
+  --input-color: var(--black);
   --button-color: var(--dark-blue);
+  --button-hover-color: var(--dark-blue);
 }
 
 code {
@@ -43,10 +47,6 @@ code {
 
 .ant-layout-sider, .ant-menu {
   background-color: var(--menu-color) !important;
-}
-
-.ant-menu-sub {
-  background-color: var(--menu-color) !important; /* Fix for sub menu */
 }
 
 .ant-menu-item-selected {
@@ -82,17 +82,6 @@ code {
   display: none !important;
 }
 
-
-.light-mode #theme-button {
-  position: relative;
-  top: 90px;
-  left: 30%;
-  border: none;
-  border-radius: 10px;
-  padding: 4px 5px;
-  cursor: pointer;
-}
-
 .ant-layout,
 .ant-layout-header,
 .ant-layout-footer,
@@ -101,4 +90,29 @@ code {
   color: var(--text-color) !important;
 }
 
+h1 {
+    padding-top: 0px;
+    text-align: center;
+    font-size: 40px;
+}
+
+button {
+    margin-top: 20px;
+    width: 100%;
+    height: 50px;
+    background-color: var(--button-color);
+    color: var(--text-color);
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#theme-button {
+  position: absolute;
+  left: 20%;
+  width: 30px;
+  height: 30px;
+  border-radius: 60px;
+}
 
