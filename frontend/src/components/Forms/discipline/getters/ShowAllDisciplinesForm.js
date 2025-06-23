@@ -4,6 +4,7 @@ import { deleteDisciplineRoute, getAllDisciplinesRoute } from '../../../../route
 import { useNavigate } from 'react-router-dom';
 import { toPascalCase } from './ShowOneDisciplineForm.js'
 import { useNotificationApi } from "../../../Alert"
+import ShowOneDisciplineForm from './ShowOneDisciplineForm.js'
 import './style.css';
 
 const ShowAllDisciplinesForm =  () => {
@@ -16,6 +17,19 @@ const ShowAllDisciplinesForm =  () => {
   const notification = useNotificationApi();
 
   const navigate = useNavigate();
+
+  const [selectedDiscipline, setSelectedDiscipline] = useState(null);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = (discipline) => {
+    setSelectedDiscipline(discipline);
+    setIsModalVisible(true);
+  };
+
+  const closeModal = () => {
+    setSelectedDiscipline(null);
+    setIsModalVisible(false);
+  };
 
   const fetchDisciplines = async () => {
     try {
@@ -72,12 +86,20 @@ const ShowAllDisciplinesForm =  () => {
         <div key={index} className="discipline-card">
           ({toPascalCase(card.type)}) <strong>{card.name}</strong> ({card.acronym})
           <div className='buttons-put-delete-discipline' style={{padding: '0.5rem'}}>
-            <button id='see-discipline' className='see-icon'><EyeIcon/></button>
+            <button id='see-discipline' className='see-icon' onClick={() => showModal(card)}><EyeIcon /></button>
             <button id='patch-discipline' className='edit-icon' onClick={handlePatch}><SquarePen/></button>
             <button id='delete-discipline' className='trash-icon' onClick={() => handleDelete(card.acronym, card.id)}><Trash2/></button>
           </div>
         </div>
       ))}
+
+      {selectedDiscipline && (
+        <ShowOneDisciplineForm
+          discipline={ selectedDiscipline }
+          open={ isModalVisible }
+          onClose={ closeModal }
+        />
+      )}
 
       <div className='pagination'>
         <button onClick={() => setPage(p => Math.max(0, p - 1))} disabled={page === 0}>Anterior</button>

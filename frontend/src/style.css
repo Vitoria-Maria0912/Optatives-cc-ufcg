@@ -5,7 +5,7 @@
   --medium-gray : #5d5b5b;
   --dark-gray : #333333;
   --dark-blue : #06129c;
-  --light-blue : #4084f0;
+  --light-blue : #1c5dc7;
   --light-purple : #9f5eea;
   --dark-purple : #5f3f9f;
 
@@ -29,6 +29,7 @@ body {
   --input-color: var(--black);
   --button-color: var(--light-purple);
   --button-hover-color: var(--dark-purple);
+  --modal-color: var(--light-purple);
 }
 
 .dark-mode {
@@ -37,7 +38,8 @@ body {
   --text-color: var(--white);
   --input-color: var(--black);
   --button-color: var(--dark-blue);
-  --button-hover-color: var(--dark-blue);
+  --button-hover-color: var(--light-blue);
+  --modal-color: var(--dark-blue);
 }
 
 code {
@@ -116,3 +118,36 @@ button {
   border-radius: 60px;
 }
 
+
+.ant-modal-content {
+    background: transparent !important;
+    position: fixed !important;
+    box-shadow: none !important;
+    top: 5%;
+}
+
+.ant-modal-close {
+    margin: 8px 13px !important;
+    background: transparent !important;
+}
+
+.ant-modal-close-x {
+    color: var(--text-color) !important;
+}
+
+.ant-descriptions-bordered {
+  border-radius: 20px;
+  overflow: hidden; 
+  border: 1px solid #cfcfcf
+}
+
+.ant-descriptions-item-content { 
+  background-color: var(--modal-color) ;
+  color: var(--text-color) !important; 
+}
+
+.ant-descriptions-item-label {
+    background-color: var(--button-hover-color) !important;
+    color: var(--text-color) !important; 
+    font-weight: bolder !important;
+}

@@ -41,6 +41,7 @@ access-database:
 
 create-disciplines:
 	bash database/Create_disciplines.sh 
+	bash database/Update_disciplines.sh 
 
 update-disciplines:
 	bash database/Update_disciplines.sh 

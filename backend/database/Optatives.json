@@ -14,7 +14,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina sobre administração e configuração de sistemas computacionais.",
-        "teacher": "Giovanni"
+        "professor": "Giovanni"
     },
     {
         "id": 38,
@@ -23,7 +23,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina introdutória aos algoritmos avançados, com foco em otimização e eficiência.",
-        "teacher": "Rohit"
+        "professor": "Rohit"
     },
     {
         "id": 39,
@@ -32,7 +32,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Continuação do estudo de algoritmos avançados, explorando algoritmos de busca e ordenação.",
-        "teacher": "Rohit"
+        "professor": "Rohit"
     },
     {
         "id": 40,
@@ -41,7 +41,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina focada em algoritmos complexos e técnicas de análise de algoritmos.",
-        "teacher": "Rohit"
+        "professor": "Rohit"
     },
     {
         "id": 41,
@@ -50,7 +50,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Exploração de algoritmos avançados de ordenação e estrutura de dados.",
-        "teacher": "Rohit"
+        "professor": "Rohit"
     },
     {
         "id": 42,
@@ -59,7 +59,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina sobre design e arquitetura de sistemas de software complexos.",
-        "teacher": "João Arthur"
+        "professor": "João Arthur"
     },
     {
         "id": 43,
@@ -84,7 +84,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Aplicação de conceitos de computação em música.",
-        "teacher": "Marcelo Barros"
+        "professor": "Marcelo Barros"
     },
     {
         "id": 46,
@@ -101,7 +101,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina sobre algoritmos e técnicas de aprendizado de máquina.",
-        "teacher": "Cláudio Campelo"
+        "professor": "Cláudio Campelo"
     },
     {
         "id": 48,
@@ -110,7 +110,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Estudo de técnicas de processamento de linguagem natural com modelos de linguagem de grande escala.",
-        "teacher": "Leandro Balby"
+        "professor": "Leandro Balby"
     },
     {
         "id": 49,
@@ -159,7 +159,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina que estuda os modelos e regulamentações de governança da internet.",
-        "teacher": "Francilene Procópio"
+        "professor": "Francilene Procópio"
     },
     {
         "id": 55,
@@ -208,7 +208,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina que estuda a interface entre o homem e o computador.",
-        "teacher": "Tiago Massoni"
+        "professor": "Tiago Massoni"
     },
     {
         "id": 61,
@@ -217,7 +217,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina que estuda os jogos digitais, desde a sua história até a sua programação.",
-        "teacher": "Marcelo Barros"
+        "professor": "Marcelo Barros"
     },
     {
         "id": 62,
@@ -258,7 +258,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina que estuda a percepção computacional.",
-        "teacher": "Herman"
+        "professor": "Herman"
     },
     {
         "id": 67,
@@ -283,7 +283,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina que estuda o processamento de linguagem natural.",
-        "teacher": "Leandro Balby | Salatiel"
+        "professor": "Leandro Balby | Salatiel"
     },
     {
         "id": 70,
@@ -292,7 +292,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina que estuda a programação em banco de dados.",
-        "teacher": "Carlos Eduardo Pires"
+        "professor": "Carlos Eduardo Pires"
     },
     {
         "id": 71,
@@ -301,7 +301,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina que estuda a programação funcional.",
-        "teacher": "Adalberto Cajueiro"
+        "professor": "Adalberto Cajueiro"
     },
     {
         "id": 72,
@@ -310,7 +310,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina que estuda a programação para web.",
-        "teacher": "Dalton | Demétrio Mestre"
+        "professor": "Dalton | Demétrio Mestre"
     },
     {
         "id": 73,
@@ -319,7 +319,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina que estuda a programação para web.",
-        "teacher": "Gaudêncio | Reinaldo | Glauber"
+        "professor": "Gaudêncio | Reinaldo | Glauber"
     },
     {
         "id": 74,
@@ -376,7 +376,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina sobre desenvolvimento de sistemas para suporte à tomada de decisão.",
-        "teacher": "Cláudio Baptista"
+        "professor": "Cláudio Baptista"
     },
     {
         "id": 81,
@@ -393,7 +393,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina sobre princípios e práticas de sistemas distribuídos.",
-        "teacher": "Andrey Elísio"
+        "professor": "Andrey Elísio"
     },
     {
         "id": 83,
@@ -410,7 +410,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina sobre técnicas de verificação e validação de software para assegurar a qualidade.",
-        "teacher": "Everton Galdino"
+        "professor": "Everton Galdino"
     },
     {
         "id": 85,
@@ -419,7 +419,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina sobre métodos e ferramentas de visualização de dados.",
-        "teacher": "Maxwell Guimarães"
+        "professor": "Maxwell Guimarães"
     },
     {
         "id": 86,
@@ -428,7 +428,7 @@
         "type": "OPTATIVE",
         "available": false,
         "description": "Disciplina que estuda o deep learning.",
-        "teacher": "Herman"
+        "professor": "Herman"
     }
 ]
   

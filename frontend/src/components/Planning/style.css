@@ -120,39 +120,6 @@
     pointer-events: none;
 }
 
-.ant-modal-content {
-    height: 70vh !important;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.ant-modal-content,
-.ant-modal-title {
-    background-color: #343535 !important;
-    border-radius: 0px !important;
-}
-
-.ant-modal-title {
-    font-size: 30px !important;
-    color: var(--text-color) !important;
-    padding: 20px 0px !important;
-}
-
-.ant-modal-close {
-    margin: 20px !important;
-}
-
-
-.ant-modal-close-x {
-    color: var(--text-color) !important;
-}
-
-.ant-modal-footer {
-    display: none !important;
-}
-
 .ant-input-wrapper {
     margin-bottom: 20px !important;
     width: 310px;

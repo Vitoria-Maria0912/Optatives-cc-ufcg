@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { HomeOutlined, UserOutlined, BookOutlined, BulbOutlined, LinkOutlined, MoonOutlined, SunOutlined } from '@ant-design/icons';
+import { HomeOutlined, UserOutlined, BookOutlined, BulbOutlined, LinkOutlined, MoonOutlined, SunOutlined, ReadOutlined } from '@ant-design/icons';
 import { NotificationProvider } from './components/Alert/index.js';
 import { Menu, Layout } from 'antd';
 import { Route, Routes, useNavigate } from "react-router-dom";
@@ -51,7 +51,7 @@ const App = () => {
 
                             <Menu.Item key="usuario" icon={<UserOutlined />} onClick={() => navigate('/users')}>Usuário</Menu.Item>
                             <Menu.Item key="login" icon={<LinkOutlined />} onClick={() => navigate('/auth/login')}>Login</Menu.Item>
-                            <Menu.Item key="discipline" icon={<LinkOutlined />} onClick={() => navigate('/disciplines')}>Disciplina</Menu.Item>
+                            <Menu.Item key="discipline" icon={<ReadOutlined />} onClick={() => navigate('/disciplines')}>Disciplina</Menu.Item>
                             <Menu.Item key="planning" icon={<BookOutlined />} onClick={() => navigate('/planning')}>Planejamento</Menu.Item>
                         </Menu>
                     </Sider>
