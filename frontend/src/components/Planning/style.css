@@ -94,7 +94,7 @@
 }
 
 #button-wrapper .planning-button:hover {
-    background-color: #b45430;
+    background-color: var(--button-hover-color);
 }
 
 .planning-header-wrapper {
@@ -154,7 +154,7 @@
 }
 
 .planning .period {
-    min-height: 700px;
+    min-height: 200px;
 }
 
 .delete-last-period {

@@ -112,12 +112,11 @@ button {
 
 #theme-button {
   position: absolute;
-  left: 20%;
+  right: 1.5%;
   width: 30px;
   height: 30px;
   border-radius: 60px;
 }
-
 
 .ant-modal-content {
     background: transparent !important;

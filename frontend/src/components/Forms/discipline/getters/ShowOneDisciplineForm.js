@@ -1,13 +1,14 @@
 import { Modal, Descriptions } from 'antd';
 const toPascalCase = (str) => str.toLowerCase().split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1));
 const toPortuguese = (str) => {return (toPascalCase(str) === "Origatory") ? "Obrigatória" : "Optativa" };
-const isSpecified = (str) => { const regex = new RegExp('((?<=Not).+)|(\w+)'); return regex.test(str); }
+const isSpecified = (str) => { const regex = new RegExp('((?<=Not).+)'); return str.length < 1 || regex.test(str); }
 
 const ShowOneDisciplineForm =  ({ discipline, open, onClose }) => {
 
   return (
     <>
       <Modal 
+        // title={`${ discipline.name }`}
         open={ open }
         onCancel={ onClose }
         destroyOnClose={ false }
@@ -21,7 +22,7 @@ const ShowOneDisciplineForm =  ({ discipline, open, onClose }) => {
             {isSpecified(discipline.professor) ? "Indefinido" : discipline.professor }
           </Descriptions.Item>
           <Descriptions.Item label="Descrição">
-            {isSpecified(discipline.description) ? discipline.description : "Não há descrição" }          
+            {isSpecified(discipline.description) ? "Não há descrição" : discipline.description }          
           </Descriptions.Item>
           <Descriptions.Item label="Horário">
             {isSpecified(discipline.schedule) ? "Indefinido" : discipline.schedule }
